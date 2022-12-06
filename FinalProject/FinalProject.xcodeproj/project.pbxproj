@@ -21,6 +21,7 @@
 		9A4405B7293F4FC800E4E2F2 /* RawgDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405B6293F4FC800E4E2F2 /* RawgDBClient.swift */; };
 		9A4405BF293F58DD00E4E2F2 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405BE293F58DD00E4E2F2 /* GameListModel.swift */; };
 		9A4405C1293F5A4200E4E2F2 /* GameListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405C0293F5A4200E4E2F2 /* GameListResultModel.swift */; };
+		9A4405C3293F5E4800E4E2F2 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405C2293F5E4800E4E2F2 /* GameListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9A4405B6293F4FC800E4E2F2 /* RawgDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgDBClient.swift; sourceTree = "<group>"; };
 		9A4405BE293F58DD00E4E2F2 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
 		9A4405C0293F5A4200E4E2F2 /* GameListResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListResultModel.swift; sourceTree = "<group>"; };
+		9A4405C2293F5E4800E4E2F2 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		9A4405BD293F56B300E4E2F2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9A4405C2293F5E4800E4E2F2 /* GameListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				9A4405C1293F5A4200E4E2F2 /* GameListResultModel.swift in Sources */,
 				9A4405B7293F4FC800E4E2F2 /* RawgDBClient.swift in Sources */,
 				9A440584293F48FD00E4E2F2 /* GameListViewController.swift in Sources */,
+				9A4405C3293F5E4800E4E2F2 /* GameListViewModel.swift in Sources */,
 				9A440580293F48FD00E4E2F2 /* AppDelegate.swift in Sources */,
 				9A44058A293F48FD00E4E2F2 /* FinalProject.xcdatamodeld in Sources */,
 				9A440582293F48FD00E4E2F2 /* SceneDelegate.swift in Sources */,

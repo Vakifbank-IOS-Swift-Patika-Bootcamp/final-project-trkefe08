@@ -31,10 +31,25 @@
                     <view key="view" contentMode="scaleToFill" id="jBf-uk-YtM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zqx-xh-FS5">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="If9-md-hTt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="If9-md-hTt" firstAttribute="bottom" secondItem="zqx-xh-FS5" secondAttribute="bottom" id="Cw3-sL-89e"/>
+                            <constraint firstItem="If9-md-hTt" firstAttribute="trailing" secondItem="zqx-xh-FS5" secondAttribute="trailing" id="FFn-4Y-WX8"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="leading" secondItem="If9-md-hTt" secondAttribute="leading" id="FOw-YB-ddK"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="top" secondItem="If9-md-hTt" secondAttribute="top" id="O9f-bH-P0X"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="z8Q-sL-KZw"/>
+                    <connections>
+                        <outlet property="gameListTableView" destination="zqx-xh-FS5" id="nHp-gI-iEG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26I-Yv-0dl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

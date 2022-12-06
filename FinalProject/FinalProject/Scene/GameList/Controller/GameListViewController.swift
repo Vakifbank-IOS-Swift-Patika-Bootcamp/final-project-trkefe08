@@ -8,12 +8,36 @@
 import UIKit
 
 class GameListViewController: UIViewController {
-
+//MARK: Outlets
+    @IBOutlet private weak var gameListTableView: UITableView! {
+        didSet {
+            gameListTableView.dataSource = self
+            gameListTableView.delegate = self
+        }
+    }
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
 }
+//MARK: Extensions
+extension GameListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+}
 
+extension GameListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+}
