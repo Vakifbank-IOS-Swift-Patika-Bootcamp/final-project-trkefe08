@@ -16,6 +16,7 @@ final class RawgDBClient {
     func makeRequest<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
+                // TODO: error case
                 return
             }
             do {
@@ -23,7 +24,7 @@ final class RawgDBClient {
                 DispatchQueue.main.async {
                     completion(.success(result))
                 }
-            } catch {
+            } catch let error {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }
