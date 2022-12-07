@@ -2,17 +2,14 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## User settings
-xcuserdata/
-
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
-*.xcscmblueprint
-*.xccheckout
-
-## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
+## Build generated
 build/
 DerivedData/
-*.moved-aside
+FeedbackReporterIOS/DrivedData
+*.ipa
+*.app.dSYM.zip
+
+## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -21,11 +18,15 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
 
 ## Obj-C/Swift specific
 *.hmap
-
-## App packaging
 *.ipa
 *.dSYM.zip
 *.dSYM
@@ -54,21 +55,15 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+Pods/
 
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
-Carthage/Build/
-
-# Accio dependency management
-Dependencies/
-.accio/
+Carthage/Build
+vendor
 
 # fastlane
 #
@@ -79,12 +74,9 @@ Dependencies/
 
 fastlane/report.xml
 fastlane/Preview.html
-fastlane/screenshots/**/*.png
+fastlane/screenshots
 fastlane/test_output
-
-# Code Injection
-#
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
-
-iOSInjectionProject/
+.DS_Store
+fastlane/README.md
+reports/
+firebase-debug.log
