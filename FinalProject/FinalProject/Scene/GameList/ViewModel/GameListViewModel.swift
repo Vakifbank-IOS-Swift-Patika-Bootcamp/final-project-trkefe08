@@ -11,6 +11,7 @@ protocol GameListViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGamesList()
     func getGamesCount() -> Int
+    func getGames(at index: Int) -> GameListResultModel?
     func getGamesId(at index: Int) -> Int?
 }
 //MARK: Delegate
@@ -33,7 +34,7 @@ final class GameListViewModel: GameListViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    print(error.localizedDescription)
+                    print(String(describing: error))
                 }
             }
         }
@@ -43,7 +44,7 @@ final class GameListViewModel: GameListViewModelProtocol {
         games?.count ?? 0
     }
     
-    func getMovie(at index: Int) -> GameListResultModel? {
+    func getGames(at index: Int) -> GameListResultModel? {
         games?[index]
     }
     
