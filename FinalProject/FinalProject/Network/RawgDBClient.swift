@@ -33,7 +33,7 @@ final class RawgDBClient {
     }
     
     func getGamesList(completion: @escaping (Result<[GameListResultModel]?, Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.BASE_URL + Constants.API_KEY)/games") else { return }
+        guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)") else { return }
         makeRequest(url: url, completion: completion)
     }
 }
