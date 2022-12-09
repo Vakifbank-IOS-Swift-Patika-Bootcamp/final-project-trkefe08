@@ -13,6 +13,7 @@ protocol GameListViewModelProtocol {
     func getGamesCount() -> Int
     func getGames(at index: Int) -> GameListResultModel?
     func getGamesId(at index: Int) -> Int?
+    func nextFetchGamesList() 
 }
 //MARK: Delegate
 protocol GameListViewModelDelegate: AnyObject {
@@ -20,20 +21,32 @@ protocol GameListViewModelDelegate: AnyObject {
 }
 
 final class GameListViewModel: GameListViewModelProtocol {
+    
     weak var delegate: GameListViewModelDelegate?
-    private var games: [GameListResultModel]?
-    
-    
+    private var games: [GameListResultModel]? = []
+    private var pagination: Int = 1
     
     //MARK: Methods
     func fetchGamesList() {
-        RawgDBClient.shared.getGamesList { [weak self] result in
+        RawgDBClient.shared.getGamesList(with: pagination) { [weak self] result in
             switch result {
             case .success(let results):
-                    self?.games = results?.results
-                    self?.delegate?.gamesLoaded()
+                self?.games = results?.results
+                self?.delegate?.gamesLoaded()
             case .failure(let error):
-                    print(String(describing: error))
+                print(String(describing: error))
+            }
+        }
+    }
+    
+    func nextFetchGamesList() {
+        pagination += 1
+        RawgDBClient.shared.getGamesList(with: pagination) { [weak self] result in
+            switch result {
+            case .success(let results):
+                self?.games?.append(contentsOf: (results?.results)!)
+            case .failure(let error):
+                print(String(describing: error))
             }
         }
     }

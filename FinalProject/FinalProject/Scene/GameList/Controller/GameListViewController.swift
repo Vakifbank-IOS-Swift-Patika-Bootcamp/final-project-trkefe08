@@ -8,7 +8,7 @@
 import UIKit
 
 final class GameListViewController: UIViewController {
-//MARK: Outlets
+    //MARK: Outlets
     @IBOutlet private weak var gameListTableView: UITableView! {
         didSet {
             gameListTableView.dataSource = self
@@ -19,7 +19,7 @@ final class GameListViewController: UIViewController {
     
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     
-//MARK: Lifecycle
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -49,5 +49,15 @@ extension GameListViewController: UITableViewDataSource {
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+extension GameListViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (gameListTableView.contentSize.height-100-scrollView.frame.size.height) {
+            viewModel.nextFetchGamesList()
+            self.gameListTableView.reloadData()
+        }
     }
 }
