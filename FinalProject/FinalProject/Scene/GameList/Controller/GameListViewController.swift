@@ -8,17 +8,18 @@
 import UIKit
 
 final class GameListViewController: UIViewController {
-    //MARK: Outlets
+//MARK: Outlets
     @IBOutlet private weak var gameListTableView: UITableView! {
         didSet {
             gameListTableView.dataSource = self
             gameListTableView.delegate = self
+            gameListTableView.register(UINib(nibName: "GameListTableViewCell", bundle: nil), forCellReuseIdentifier: "GameCell")
         }
     }
     
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     
-    //MARK: Lifecycle
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
