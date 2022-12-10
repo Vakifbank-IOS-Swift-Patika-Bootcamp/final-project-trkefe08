@@ -8,7 +8,7 @@
 import UIKit
 
 final class GameListViewController: UIViewController {
-    //MARK: Outlets
+//MARK: Outlets
     @IBOutlet private weak var gameListTableView: UITableView! {
         didSet {
             gameListTableView.dataSource = self
@@ -17,15 +17,22 @@ final class GameListViewController: UIViewController {
         }
     }
     
+//MARK: Variables
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
+    private var searchBar = UISearchBar()
+    private var searchController = UISearchController(searchResultsController: nil)
     
-    //MARK: Lifecycle
+//MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGamesList()
+        defaultSearchController()
     }
 }
+
+//MARK: Methods
+
 
 //MARK: Extensions
 extension GameListViewController: GameListViewModelDelegate {
@@ -60,4 +67,23 @@ extension GameListViewController: UIScrollViewDelegate {
             self.gameListTableView.reloadData()
         }
     }
+}
+
+extension GameListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        viewModel.searchFetchGamesList(textSearch: searchText)
+        self.gameListTableView.reloadData()
+    }
+    
+    func defaultSearchController() {
+        navigationItem.searchController = searchController
+        searchBar = searchController.searchBar
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        definesPresentationContext = true
+    }
+    
 }
