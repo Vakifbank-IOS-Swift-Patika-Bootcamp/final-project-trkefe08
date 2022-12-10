@@ -8,7 +8,7 @@
 import UIKit
 
 final class GameListViewController: UIViewController {
-//MARK: Outlets
+    //MARK: Outlets
     @IBOutlet private weak var gameListTableView: UITableView! {
         didSet {
             gameListTableView.dataSource = self
@@ -17,22 +17,38 @@ final class GameListViewController: UIViewController {
         }
     }
     
-//MARK: Variables
+    @IBOutlet weak var gamePopUpButton: UIButton!
+    //MARK: Variables
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     private var searchBar = UISearchBar()
     private var searchController = UISearchController(searchResultsController: nil)
     
-//MARK: Lifecycle
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGamesList()
         defaultSearchController()
+        setPopUpButton()
+    }
+    
+    //MARK: Methods
+    func setPopUpButton() {
+        let optionClosure = {(action : UIAction) in
+            if action.title == "Popular" {
+                self.viewModel.getPopularGames()
+                self.gameListTableView.reloadData()
+            } else if action.title == "Games" {
+                self.viewModel.fetchGamesList()
+                self.gameListTableView.reloadData()
+            }
+        }
+        gamePopUpButton.menu = UIMenu(children: [
+            UIAction(title: "Games", state: .on, handler: optionClosure),
+            UIAction(title: "Popular", handler: optionClosure)
+        ])
     }
 }
-
-//MARK: Methods
-
 
 //MARK: Extensions
 extension GameListViewController: GameListViewModelDelegate {

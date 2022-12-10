@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,20 +25,39 @@
                         <viewLayoutGuide key="safeArea" id="If9-md-hTt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="If9-md-hTt" firstAttribute="bottom" secondItem="zqx-xh-FS5" secondAttribute="bottom" id="Cw3-sL-89e"/>
-                            <constraint firstItem="If9-md-hTt" firstAttribute="trailing" secondItem="zqx-xh-FS5" secondAttribute="trailing" id="FFn-4Y-WX8"/>
-                            <constraint firstItem="zqx-xh-FS5" firstAttribute="leading" secondItem="If9-md-hTt" secondAttribute="leading" id="FOw-YB-ddK"/>
-                            <constraint firstItem="zqx-xh-FS5" firstAttribute="top" secondItem="If9-md-hTt" secondAttribute="top" id="O9f-bH-P0X"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="trailing" secondItem="If9-md-hTt" secondAttribute="trailing" id="8AD-1C-GmQ"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="top" secondItem="If9-md-hTt" secondAttribute="top" id="8cQ-Rv-XlW"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="trailing" secondItem="If9-md-hTt" secondAttribute="trailing" id="Jos-bE-tmq"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="bottom" secondItem="If9-md-hTt" secondAttribute="bottom" id="P32-Mw-Pzz"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="top" secondItem="If9-md-hTt" secondAttribute="top" id="p8d-6u-Nxe"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="leading" secondItem="If9-md-hTt" secondAttribute="leading" id="ql3-EX-LvD"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="leading" secondItem="If9-md-hTt" secondAttribute="leading" id="ucL-d9-KRd"/>
+                            <constraint firstItem="zqx-xh-FS5" firstAttribute="bottom" secondItem="If9-md-hTt" secondAttribute="bottom" id="viB-Bm-C5Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="z8Q-sL-KZw"/>
+                    <navigationItem key="navigationItem" id="z8Q-sL-KZw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="f3D-cY-BAg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" id="pIc-dM-A4F">
+                                <rect key="frame" x="296" y="7" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="qzj-RD-T1Y">
+                                    <children>
+                                        <command title="Item 1" id="msQ-t9-4Gy"/>
+                                        <command title="Item 2" id="0UB-2U-ED8"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="gameListTableView" destination="zqx-xh-FS5" id="nHp-gI-iEG"/>
+                        <outlet property="gamePopUpButton" destination="pIc-dM-A4F" id="2Wk-K0-uN4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26I-Yv-0dl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="-341"/>
+            <point key="canvasLocation" x="184.61538461538461" y="-341.23222748815164"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Y2R-8c-OSx">

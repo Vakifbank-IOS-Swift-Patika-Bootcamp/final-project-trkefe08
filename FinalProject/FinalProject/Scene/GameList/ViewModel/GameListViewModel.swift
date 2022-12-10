@@ -15,6 +15,7 @@ protocol GameListViewModelProtocol {
     func getGamesId(at index: Int) -> Int?
     func nextFetchGamesList()
     func searchFetchGamesList(textSearch: String)
+    func getPopularGames()
 }
 //MARK: Delegate
 protocol GameListViewModelDelegate: AnyObject {
@@ -25,11 +26,11 @@ final class GameListViewModel: GameListViewModelProtocol {
 //MARK: Variables
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListResultModel]? = []
-    private var pagination: Int = 1
+    private var pagination: Int = 0
     
 //MARK: Methods
     func fetchGamesList() {
-        RawgDBClient.shared.getGamesList(with: pagination) { [weak self] result in
+        RawgDBClient.shared.getGamesList { [weak self] result in
             switch result {
             case .success(let results):
                 self?.games = results?.results
@@ -42,7 +43,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func nextFetchGamesList() {
         pagination += 1
-        RawgDBClient.shared.getGamesList(with: pagination) { [weak self] result in
+        RawgDBClient.shared.getGamesListPage(with: pagination) { [weak self] result in
             switch result {
             case .success(let results):
                 self?.games?.append(contentsOf: (results?.results)!)
@@ -66,6 +67,18 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func searchFetchGamesList(textSearch: String) {
         RawgDBClient.shared.searchGamesList(with: textSearch) { [weak self] result in
+            switch result {
+            case .success(let results):
+                self?.games = results?.results
+                self?.delegate?.gamesLoaded()
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
+    
+    func getPopularGames() {
+        RawgDBClient.shared.getPopularGamesList { [weak self] result in
             switch result {
             case .success(let results):
                 self?.games = results?.results
