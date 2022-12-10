@@ -85,5 +85,4 @@ extension GameListViewController: UISearchResultsUpdating, UISearchBarDelegate {
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
         definesPresentationContext = true
     }
-    
 }
