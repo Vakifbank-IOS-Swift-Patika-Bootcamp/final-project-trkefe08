@@ -51,4 +51,9 @@ final class RawgDBClient {
         guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)&dates=2022-01-01,2022-12-31&ordering=-added") else { return }
         makeRequest(url: url, completion: completion)
     }
+    
+    func getGameDetail(with id: Int, completion: @escaping (Result<GameDetailModel?, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/games/\(id)?key=\(Constants.API_KEY)") else { return }
+        makeRequest(url: url, completion: completion)
+    }
 }

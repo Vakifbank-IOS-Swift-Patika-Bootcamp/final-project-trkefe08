@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="184.61538461538461" y="-341.23222748815164"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Detail View Controller-->
         <scene sceneID="SyS-p2-XfM">
             <objects>
-                <viewController id="KLy-Cs-HZ7" sceneMemberID="viewController">
+                <viewController id="KLy-Cs-HZ7" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SBh-cN-bE7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
