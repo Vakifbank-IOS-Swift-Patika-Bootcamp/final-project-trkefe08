@@ -66,6 +66,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func searchFetchGamesList(textSearch: String) {
+        pagination += 1
         RawgDBClient.shared.searchGamesList(with: textSearch) { [weak self] result in
             switch result {
             case .success(let results):

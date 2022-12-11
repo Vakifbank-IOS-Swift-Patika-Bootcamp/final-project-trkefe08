@@ -22,6 +22,8 @@ final class GameListViewController: UIViewController {
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     private var searchBar = UISearchBar()
     private var searchController = UISearchController(searchResultsController: nil)
+    private var cellSpacingHeight: CGFloat = 1
+    private let indexPath: IndexPath = IndexPath(row:0, section:0)
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -38,9 +40,11 @@ final class GameListViewController: UIViewController {
             if action.title == "Popular" {
                 self.viewModel.getPopularGames()
                 self.gameListTableView.reloadData()
+                self.gameListTableView.scrollToRow(at: self.indexPath, at: UITableView.ScrollPosition.top, animated: true)
             } else if action.title == "Games" {
                 self.viewModel.fetchGamesList()
                 self.gameListTableView.reloadData()
+                self.gameListTableView.scrollToRow(at: self.indexPath, at: UITableView.ScrollPosition.top, animated: true)
             }
         }
         gamePopUpButton.menu = UIMenu(children: [
@@ -58,15 +62,30 @@ extension GameListViewController: GameListViewModelDelegate {
 }
 
 extension GameListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.getGamesCount()
+        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as? GameListTableViewCell, let model = viewModel.getGames(at: indexPath.row) else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell") as? GameListTableViewCell, let model = viewModel.getGames(at: indexPath.section) else { return UITableViewCell() }
         cell.configureCell(game: model)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let headerView = UIView()
+           headerView.backgroundColor = UIColor.clear
+           return headerView
+       }
 }
 
 extension GameListViewController: UITableViewDelegate {
@@ -89,7 +108,6 @@ extension GameListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
         viewModel.searchFetchGamesList(textSearch: searchText)
-        self.gameListTableView.reloadData()
     }
     
     func defaultSearchController() {
@@ -101,4 +119,12 @@ extension GameListViewController: UISearchResultsUpdating, UISearchBarDelegate {
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
         definesPresentationContext = true
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.searchBar.text = nil
+        gameListTableView.scrollToRow(at: self.indexPath, at: UITableView.ScrollPosition.top, animated: true)
+        gameListTableView.reloadData()
+    }
 }
+
+
