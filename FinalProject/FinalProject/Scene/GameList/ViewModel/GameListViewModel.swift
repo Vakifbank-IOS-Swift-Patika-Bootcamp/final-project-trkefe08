@@ -27,6 +27,9 @@ final class GameListViewModel: GameListViewModelProtocol {
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListResultModel]? = []
     private var pagination: Int = 0
+    private var isServiceActive: Bool = false
+    private var searchPagination: Int = 0
+    private var isSearchActive: Bool = false
     
 //MARK: Methods
     func fetchGamesList() {
@@ -42,8 +45,11 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func nextFetchGamesList() {
+        guard !isServiceActive else { return }
+        isServiceActive = true
         pagination += 1
         RawgDBClient.shared.getGamesListPage(with: pagination) { [weak self] result in
+            self?.isServiceActive = false
             switch result {
             case .success(let results):
                 self?.games?.append(contentsOf: (results?.results)!)
@@ -66,8 +72,11 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func searchFetchGamesList(textSearch: String) {
-        pagination += 1
-        RawgDBClient.shared.searchGamesList(with: textSearch) { [weak self] result in
+        guard !isSearchActive else { return }
+        isSearchActive = true
+        searchPagination += 1
+        RawgDBClient.shared.searchGamesList(with: textSearch, with: searchPagination) { [weak self] result in
+            self?.isSearchActive = false
             switch result {
             case .success(let results):
                 self?.games = results?.results

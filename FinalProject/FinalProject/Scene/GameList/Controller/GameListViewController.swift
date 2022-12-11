@@ -65,7 +65,8 @@ extension GameListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.getGamesCount()
-        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -82,10 +83,10 @@ extension GameListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-           let headerView = UIView()
-           headerView.backgroundColor = UIColor.clear
-           return headerView
-       }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 }
 
 extension GameListViewController: UITableViewDelegate {
@@ -101,6 +102,7 @@ extension GameListViewController: UIScrollViewDelegate {
             viewModel.nextFetchGamesList()
             self.gameListTableView.reloadData()
         }
+        
     }
 }
 
