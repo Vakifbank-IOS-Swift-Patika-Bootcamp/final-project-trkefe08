@@ -22,6 +22,9 @@
 		9A4405BF293F58DD00E4E2F2 /* GameListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405BE293F58DD00E4E2F2 /* GameListModel.swift */; };
 		9A4405C1293F5A4200E4E2F2 /* GameListResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405C0293F5A4200E4E2F2 /* GameListResultModel.swift */; };
 		9A4405C3293F5E4800E4E2F2 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4405C2293F5E4800E4E2F2 /* GameListViewModel.swift */; };
+		9ACE71292941ED4300F6E604 /* GameListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */; };
+		9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */; };
+		9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE712C2941F1A600F6E604 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,8 @@
 		9A4405BE293F58DD00E4E2F2 /* GameListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListModel.swift; sourceTree = "<group>"; };
 		9A4405C0293F5A4200E4E2F2 /* GameListResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListResultModel.swift; sourceTree = "<group>"; };
 		9A4405C2293F5E4800E4E2F2 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
+		9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewCell.swift; sourceTree = "<group>"; };
+		9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +203,8 @@
 		9A4405BC293F56A700E4E2F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */,
+				9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +233,9 @@
 			dependencies = (
 			);
 			name = FinalProject;
+			packageProductDependencies = (
+				9ACE712C2941F1A600F6E604 /* Kingfisher */,
+			);
 			productName = FinalProject;
 			productReference = 9A44057C293F48FD00E4E2F2 /* FinalProject.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +308,9 @@
 				Base,
 			);
 			mainGroup = 9A440573293F48FD00E4E2F2;
+			packageReferences = (
+				9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 9A44057D293F48FD00E4E2F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -316,6 +330,7 @@
 				9A44058F293F48FE00E4E2F2 /* LaunchScreen.storyboard in Resources */,
 				9A44058C293F48FE00E4E2F2 /* Assets.xcassets in Resources */,
 				9A440587293F48FD00E4E2F2 /* Main.storyboard in Resources */,
+				9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +358,7 @@
 				9A4405B5293F4EFA00E4E2F2 /* Constants.swift in Sources */,
 				9A4405BF293F58DD00E4E2F2 /* GameListModel.swift in Sources */,
 				9A4405C1293F5A4200E4E2F2 /* GameListResultModel.swift in Sources */,
+				9ACE71292941ED4300F6E604 /* GameListTableViewCell.swift in Sources */,
 				9A4405B7293F4FC800E4E2F2 /* RawgDBClient.swift in Sources */,
 				9A440584293F48FD00E4E2F2 /* GameListViewController.swift in Sources */,
 				9A4405C3293F5E4800E4E2F2 /* GameListViewModel.swift in Sources */,
@@ -684,6 +700,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9ACE712C2941F1A600F6E604 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9A440588293F48FD00E4E2F2 /* FinalProject.xcdatamodeld */ = {

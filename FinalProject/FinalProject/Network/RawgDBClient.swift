@@ -32,4 +32,23 @@ final class RawgDBClient {
         }.resume()
     }
     
+    func getGamesList(completion: @escaping (Result<GameListModel?, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)") else { return }
+        makeRequest(url: url, completion: completion)
+    }
+    
+    func getGamesListPage(with page: Int, completion: @escaping (Result<GameListModel?, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)&page=\(page)") else { return }
+        makeRequest(url: url, completion: completion)
+    }
+    
+    func searchGamesList(with search: String, completion: @escaping (Result<GameListModel?, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)&search=\(search)") else { return }
+        makeRequest(url: url, completion: completion)
+    }
+    
+    func getPopularGamesList(completion: @escaping (Result<GameListModel?, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)/games?key=\(Constants.API_KEY)&dates=2022-01-01,2022-12-31&ordering=-added") else { return }
+        makeRequest(url: url, completion: completion)
+    }
 }
