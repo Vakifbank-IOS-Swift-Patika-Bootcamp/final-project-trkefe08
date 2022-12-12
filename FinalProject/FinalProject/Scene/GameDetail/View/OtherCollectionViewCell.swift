@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
-class OtherCollectionViewCell: UICollectionViewCell {
+final class OtherCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet private weak var otherImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }
