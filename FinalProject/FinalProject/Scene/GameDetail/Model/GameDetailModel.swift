@@ -23,9 +23,11 @@ struct GameDetailModel: Codable {
     let reviewsCount: Int?
     let developers, genres, tags, publishers: [GameDeveloperModel]?
     let descriptionRaw: String?
+    let metacriticPlatforms: [MetaModel]?
 
     enum CodingKeys: String, CodingKey {
         case id, slug, name
+        case metacriticPlatforms = "metacritic_platforms"
         case nameOriginal = "name_original"
         case gameDetailModelDescription = "description"
         case released, tba, updated

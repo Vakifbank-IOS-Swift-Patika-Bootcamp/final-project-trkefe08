@@ -5,7 +5,7 @@
 //  Created by Tarik Efe on 11.12.2022.
 //
 
-import Foundation
+import UIKit
 //MARK: Protocols
 protocol GameDetailViewModelProtocol {
     var delegate: GameDetailViewModelDelegate? { get set }
@@ -26,20 +26,33 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     //MARK: Variables
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
+    private var gameMeta: MetaModel?
     
     //MARK: Methods
     func fetchGameDetail(id: Int) {
         RawgDBClient.shared.getGameDetail(with: id) { [weak self] result in
-            guard let self = self else { return }
             switch result {
             case .success(let results):
-                self.game = results
-                self.delegate?.gameLoaded()
+                self?.game = results
+                self?.delegate?.gameLoaded()
             case .failure(let error):
                 print(String(describing: error))
             }
         }
     }
+    
+    func fetchMetaModel(id: Int) {
+        RawgDBClient.shared.getMetaModel(with: id) { [weak self] result in
+            switch result {
+            case .success(let results):
+                self?.gameMeta = results
+                self?.delegate?.gameLoaded()
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
+    
     
     func getGameImageURL() -> URL? {
         URL(string: game?.backgroundImage ?? "")
@@ -63,5 +76,9 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     
     func getTopRating() -> Int {
         game?.ratingTop ?? 0
+    }
+    
+    func getMetaScore() -> Int {
+        gameMeta?.metascore ?? 0
     }
 }

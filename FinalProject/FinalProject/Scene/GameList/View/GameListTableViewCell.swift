@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class GameListTableViewCell: UITableViewCell {
+final class GameListTableViewCell: UITableViewCell {
 //MARK: Outlets
     @IBOutlet private weak var gameImageView: UIImageView! {
         didSet {
