@@ -11,6 +11,7 @@ struct GameDetailModel: Codable {
     let id: Int?
     let slug, name, nameOriginal, gameDetailModelDescription: String?
     let released: String?
+    let metacritic: Int?
     let tba: Bool?
     let updated: String?
     let backgroundImage, backgroundImageAdditional: String?
@@ -26,7 +27,7 @@ struct GameDetailModel: Codable {
     let metacriticPlatforms: [MetaModel]?
 
     enum CodingKeys: String, CodingKey {
-        case id, slug, name
+        case id, slug, name, metacritic
         case metacriticPlatforms = "metacritic_platforms"
         case nameOriginal = "name_original"
         case gameDetailModelDescription = "description"

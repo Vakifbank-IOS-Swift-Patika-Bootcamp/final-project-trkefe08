@@ -16,6 +16,7 @@ protocol GameDetailViewModelProtocol {
     func getGameRelease() -> String
     func getRating() -> Double
     func getTopRating() -> Int
+    func getMetaScore() -> Int
 }
 
 protocol GameDetailViewModelDelegate: AnyObject {
@@ -23,10 +24,10 @@ protocol GameDetailViewModelDelegate: AnyObject {
 }
 //MARK: Class
 final class GameDetailViewModel: GameDetailViewModelProtocol {
+    
     //MARK: Variables
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
-    private var gameMeta: MetaModel?
     
     //MARK: Methods
     func fetchGameDetail(id: Int) {
@@ -41,19 +42,6 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
         }
     }
     
-    func fetchMetaModel(id: Int) {
-        RawgDBClient.shared.getMetaModel(with: id) { [weak self] result in
-            switch result {
-            case .success(let results):
-                self?.gameMeta = results
-                self?.delegate?.gameLoaded()
-            case .failure(let error):
-                print(String(describing: error))
-            }
-        }
-    }
-    
-    
     func getGameImageURL() -> URL? {
         URL(string: game?.backgroundImage ?? "")
     }
@@ -63,7 +51,7 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     }
     
     func getGameDescription() -> String {
-        game?.gameDetailModelDescription ?? "Not Found"
+        game?.descriptionRaw ?? "Not Found"
     }
     
     func getGameRelease() -> String {
@@ -79,6 +67,6 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     }
     
     func getMetaScore() -> Int {
-        gameMeta?.metascore ?? 0
+        game?.metacritic ?? 0
     }
 }

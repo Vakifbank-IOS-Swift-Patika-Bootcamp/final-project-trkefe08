@@ -56,9 +56,4 @@ final class RawgDBClient {
         guard let url = URL(string: "\(Constants.BASE_URL)/games/\(id)?key=\(Constants.API_KEY)") else { return }
         makeRequest(url: url, completion: completion)
     }
-    
-    func getMetaModel(with id: Int, completion: @escaping (Result<MetaModel?, Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.BASE_URL)/games/\(id)?key=\(Constants.API_KEY)") else { return }
-        makeRequest(url: url, completion: completion)
-    }
 }

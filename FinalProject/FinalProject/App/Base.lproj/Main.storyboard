@@ -13,7 +13,7 @@
         <!--Game List View Controller-->
         <scene sceneID="haK-y3-VZr">
             <objects>
-                <viewController id="Qpg-W4-GT4" customClass="GameListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameListViewController" id="Qpg-W4-GT4" customClass="GameListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBf-uk-YtM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
                     <connections>
                         <outlet property="gameListTableView" destination="zqx-xh-FS5" id="nHp-gI-iEG"/>
                         <outlet property="gamePopUpButton" destination="pIc-dM-A4F" id="2Wk-K0-uN4"/>
-                        <segue destination="KLy-Cs-HZ7" kind="show" id="RKg-WO-bfb"/>
+                        <segue destination="KLy-Cs-HZ7" kind="show" identifier="goToDetail" id="RKg-WO-bfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26I-Yv-0dl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -64,7 +64,7 @@
         <!--Game Detail View Controller-->
         <scene sceneID="SyS-p2-XfM">
             <objects>
-                <viewController id="KLy-Cs-HZ7" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameDetailViewController" id="KLy-Cs-HZ7" customClass="GameDetailViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SBh-cN-bE7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74R-1U-mbA">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="1900"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czO-97-bAB">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czO-97-bAB">
                                                 <rect key="frame" x="8" y="8" width="374" height="375"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="375" id="U0v-gV-v9A"/>
@@ -271,7 +271,6 @@
                         <outlet property="gameImageView" destination="czO-97-bAB" id="Q4l-Ld-LHE"/>
                         <outlet property="metaScoreLabel" destination="stt-Lp-ju1" id="dhd-xt-1WI"/>
                         <outlet property="nameLabel" destination="4Si-7g-cl7" id="7Tm-Z8-wc5"/>
-                        <outlet property="otherGamesCollectionView" destination="QxG-hW-Hiz" id="jh6-dn-9Aj"/>
                         <outlet property="ratingLabel" destination="Sum-ew-tTi" id="Smy-I4-pte"/>
                         <outlet property="releaseDateLabel" destination="8pF-3z-2A1" id="MBs-OE-Xix"/>
                         <outlet property="topRatingLabel" destination="isi-e4-WOQ" id="mUr-XB-JdC"/>

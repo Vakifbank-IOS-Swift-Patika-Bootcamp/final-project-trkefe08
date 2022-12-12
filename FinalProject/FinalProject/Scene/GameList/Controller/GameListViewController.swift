@@ -91,7 +91,9 @@ extension GameListViewController: UITableViewDataSource {
 
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as? GameDetailViewController else { return }
+        detailVC.gameId = viewModel.getGamesId(at: indexPath.section)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
