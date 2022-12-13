@@ -46,4 +46,13 @@ final class GameListTableViewCell: UITableViewCell {
         guard let url = URL(string: game.backgroundImage ?? "not found") else { return }
         gameImageView.kf.setImage(with: url)
     }
+    
+    func configureFavoriteGameCell(favorites: FinalProject) {
+        guard let url = URL(string: favorites.image ?? "not found") else { return }
+        gameImageView.kf.setImage(with: url)
+        nameLabel.text = favorites.name
+        releaseDateLabel.text = favorites.releaseDate
+        ratingLabel.text = "\(favorites.rating)"
+        topRatingLabel.text = "\(favorites.topRating)"
+    }
 }

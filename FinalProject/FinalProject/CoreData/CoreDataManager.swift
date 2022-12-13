@@ -24,7 +24,7 @@ final class CoreDataManager {
         return request.predicate!
     }
     
-    func checkIsFavourite(with gameId: Int, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func checkIsFavorite(with gameId: Int, completion: @escaping (Result<Bool, Error>) -> Void) {
         do {
             let request: NSFetchRequest<FinalProject> = FinalProject.fetchRequest()
             request.returnsObjectsAsFaults = false

@@ -14,6 +14,7 @@ protocol FavoriteListViewModelProtocol {
     func getFavoriteGameCount() -> Int
     func getFavorite(at index: Int) -> FinalProject?
     func getFavoriteId(at index: Int) -> Int64?
+    //func deleteFavoriteGame(with id: Int)
 }
 
 protocol FavoriteListViewModelDelegate: AnyObject {
@@ -49,4 +50,11 @@ final class FavoriteListViewModel: FavoriteListViewModelProtocol {
         favoriteGames[index].id
     }
     
+    /*func deleteFavoriteGame(with id: Int) {
+        let indexPath = IndexPath.self
+        CoreDataManager.shared.deleteGame(with: Int(favoriteGames) { error in
+            print(error)
+        }
+
+    }*/
 }
