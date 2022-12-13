@@ -16,13 +16,13 @@ final class GameDetailViewController: UIViewController {
     @IBOutlet private weak var topRatingLabel: UILabel!
     @IBOutlet private weak var metaScoreLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    /*@IBOutlet private weak var otherGamesCollectionView: UICollectionView! {
+    @IBOutlet private weak var otherGamesCollectionView: UICollectionView! {
         didSet {
             otherGamesCollectionView.delegate = self
             otherGamesCollectionView.dataSource = self
             otherGamesCollectionView.register(UINib(nibName: "OtherCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "OtherCell")
         }
-    }*/
+    }
     var gameId: Int?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     
@@ -31,6 +31,7 @@ final class GameDetailViewController: UIViewController {
         guard let id = gameId else { return }
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: id)
+        viewModel.fetchOtherGamesDetail(id: id)
     }
 }
 
@@ -44,18 +45,20 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         descriptionLabel.text = viewModel.getGameDescription()
         guard let url = viewModel.getGameImageURL() else { return }
         gameImageView.kf.setImage(with: url)
-        
+        //otherGamesCollectionView.reloadData()
     }
 }
 
-/*extension GameDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension GameDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        viewModel.getOtherGamesCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OtherCell", for: indexPath) as? OtherCollectionViewCell, let model = viewModel.getOtherGames(at: indexPath.row) else { return UICollectionViewCell() }
+        cell.configureCell(model: model)
+                return cell
     }
     
     
-}*/
+}

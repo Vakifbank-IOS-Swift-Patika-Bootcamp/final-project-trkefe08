@@ -16,5 +16,11 @@ final class OtherCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func configureCell(model: ResultModel) {
+        guard let url = URL(string: model.backgroundImage ?? "not found") else { return }
+        otherImageView.kf.setImage(with: url)
+        nameLabel.text = model.name
+    }
 
 }

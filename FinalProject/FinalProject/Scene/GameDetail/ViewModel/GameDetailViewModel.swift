@@ -10,6 +10,7 @@ import UIKit
 protocol GameDetailViewModelProtocol {
     var delegate: GameDetailViewModelDelegate? { get set }
     func fetchGameDetail(id: Int)
+    func fetchOtherGamesDetail(id: Int)
     func getGameImageURL() -> URL?
     func getGameTitle() -> String
     func getGameDescription() -> String
@@ -17,6 +18,8 @@ protocol GameDetailViewModelProtocol {
     func getRating() -> Double
     func getTopRating() -> Int
     func getMetaScore() -> Int
+    func getOtherGamesCount() -> Int
+    func getOtherGames(at index: Int) -> ResultModel?
 }
 
 protocol GameDetailViewModelDelegate: AnyObject {
@@ -28,6 +31,8 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     //MARK: Variables
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
+    private var gameSeries: [ResultModel]?
+    
     
     //MARK: Methods
     func fetchGameDetail(id: Int) {
@@ -35,6 +40,18 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
             switch result {
             case .success(let results):
                 self?.game = results
+                self?.delegate?.gameLoaded()
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
+    
+    func fetchOtherGamesDetail(id: Int) {
+        RawgDBClient.shared.getOtherGameDetail(with: id) { [weak self] result in
+            switch result {
+            case .success(let otherGame):
+                self?.gameSeries = otherGame?.results
                 self?.delegate?.gameLoaded()
             case .failure(let error):
                 print(String(describing: error))
@@ -69,4 +86,13 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     func getMetaScore() -> Int {
         game?.metacritic ?? 0
     }
+    
+    func getOtherGamesCount() -> Int {
+        gameSeries?.count ?? 0
+    }
+    
+    func getOtherGames(at index: Int) -> ResultModel? {
+        gameSeries?[index]
+    }
+    
 }
