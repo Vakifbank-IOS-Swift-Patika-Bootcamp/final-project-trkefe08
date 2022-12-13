@@ -264,10 +264,27 @@
                             <constraint firstItem="d8b-bU-7da" firstAttribute="bottom" secondItem="w8m-DK-SLX" secondAttribute="bottom" id="kDe-Xa-gro"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="U65-t7-msl"/>
+                    <navigationItem key="navigationItem" id="U65-t7-msl">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" style="plain" id="oLh-uB-wKT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qeT-Gx-8WE">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" red="1" green="0.32602844240000001" blue="0.25244206479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addFavoriteButton:" destination="KLy-Cs-HZ7" eventType="touchUpInside" id="NB0-Hv-xHN"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="1" green="0.32602844240000001" blue="0.25244206479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="cuN-at-uVd" id="twf-pC-S9C"/>
+                        <outlet property="favoriteButton" destination="qeT-Gx-8WE" id="5xs-sC-A4J"/>
                         <outlet property="gameImageView" destination="czO-97-bAB" id="Q4l-Ld-LHE"/>
                         <outlet property="metaScoreLabel" destination="stt-Lp-ju1" id="dhd-xt-1WI"/>
                         <outlet property="nameLabel" destination="4Si-7g-cl7" id="7Tm-Z8-wc5"/>
@@ -320,6 +337,7 @@
     <resources>
         <image name="Star" width="170.66667175292969" height="170.66667175292969"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="meta" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
