@@ -65,7 +65,8 @@ extension GameListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.getGamesCount()
-        }
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -82,15 +83,17 @@ extension GameListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-           let headerView = UIView()
-           headerView.backgroundColor = UIColor.clear
-           return headerView
-       }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
 }
 
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let detailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as? GameDetailViewController else { return }
+        detailVC.gameId = viewModel.getGamesId(at: indexPath.section)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
@@ -101,6 +104,7 @@ extension GameListViewController: UIScrollViewDelegate {
             viewModel.nextFetchGamesList()
             self.gameListTableView.reloadData()
         }
+        
     }
 }
 
