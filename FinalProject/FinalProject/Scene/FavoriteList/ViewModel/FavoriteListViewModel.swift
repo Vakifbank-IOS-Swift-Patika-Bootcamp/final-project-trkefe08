@@ -14,7 +14,7 @@ protocol FavoriteListViewModelProtocol {
     func getFavoriteGameCount() -> Int
     func getFavorite(at index: Int) -> FinalProject?
     func getFavoriteId(at index: Int) -> Int64?
-    //func deleteFavoriteGame(with id: Int)
+    func deleteFavoriteGame(with favoriteId: Int)
 }
 
 protocol FavoriteListViewModelDelegate: AnyObject {
@@ -24,7 +24,11 @@ protocol FavoriteListViewModelDelegate: AnyObject {
 //MARK: Class
 final class FavoriteListViewModel: FavoriteListViewModelProtocol {
     weak var delegate: FavoriteListViewModelDelegate?
-    var favoriteGames: [FinalProject] = []
+    var favoriteGames: [FinalProject] = [] {
+        didSet {
+            delegate?.favoritesLoaded()
+        }
+    }
     
     //MARK: Methods
     func fetchGamesFromCoreData() {
@@ -47,14 +51,16 @@ final class FavoriteListViewModel: FavoriteListViewModelProtocol {
     }
     
     func getFavoriteId(at index: Int) -> Int64? {
-        favoriteGames[index].id
+        favoriteGames[safe: index]?.id
     }
     
-    /*func deleteFavoriteGame(with id: Int) {
-        let indexPath = IndexPath.self
-        CoreDataManager.shared.deleteGame(with: Int(favoriteGames) { error in
+    func deleteFavoriteGame(with favoriteId: Int) {
+        CoreDataManager.shared.deleteGame(with: favoriteId) { error in
             print(error)
         }
-
-    }*/
+        guard let id = favoriteGames.indices.first(where: { index  in
+            return favoriteGames[index].id == favoriteId
+        }) else { return }
+        self.favoriteGames.remove(at: id)
+    }
 }

@@ -46,5 +46,14 @@ extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case.delete:
+            guard let id = viewModel.getFavorite(at: indexPath.row)?.id else { return }
+            viewModel.deleteFavoriteGame(with: Int(id))
+        default:
+            break
+        }
+        
+    }
 }

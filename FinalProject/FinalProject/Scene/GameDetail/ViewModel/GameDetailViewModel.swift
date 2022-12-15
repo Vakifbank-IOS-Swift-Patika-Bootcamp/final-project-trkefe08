@@ -20,10 +20,13 @@ protocol GameDetailViewModelProtocol {
     func getMetaScore() -> Int
     func getOtherGamesCount() -> Int
     func getOtherGames(at index: Int) -> ResultModel?
+    func addFavorite(id: Int)
+    func showFavorite(id: Int)
 }
 
 protocol GameDetailViewModelDelegate: AnyObject {
     func gameLoaded()
+    func didAddFavorite(status: Bool)
 }
 //MARK: Class
 final class GameDetailViewModel: GameDetailViewModelProtocol {
@@ -32,7 +35,6 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
     private var gameSeries: [ResultModel]?
-    
     
     //MARK: Methods
     func fetchGameDetail(id: Int) {
@@ -95,4 +97,38 @@ final class GameDetailViewModel: GameDetailViewModelProtocol {
         gameSeries?[index]
     }
     
+    func addFavorite(id: Int) {
+        CoreDataManager.shared.checkIsFavorite(with: id) { result in
+            switch result {
+            case .success(let bool):
+                self.delegate?.didAddFavorite(status: bool)
+                if bool {
+                    CoreDataManager.shared.deleteGame(with: id) { error in
+                        print(error)
+                    }
+                    
+                } else {
+                    guard let games = self.game else { return }
+                    CoreDataManager.shared.createFavoriteGame(with: games)
+                }
+            case.failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func showFavorite(id: Int) {
+        CoreDataManager.shared.checkIsFavorite(with: id) { result in
+            switch result {
+            case .success(let bool):
+                if bool {
+                    self.delegate?.didAddFavorite(status: bool)
+                } else {
+                    self.delegate?.didAddFavorite(status: bool)
+                }
+            case.failure(let error):
+                print(error)
+            }
+        }
+    }
 }
