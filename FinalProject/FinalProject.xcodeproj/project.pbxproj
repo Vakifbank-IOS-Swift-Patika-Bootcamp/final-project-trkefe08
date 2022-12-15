@@ -36,6 +36,10 @@
 		9AB0C63A2946403A00A964CF /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB0C6392946403A00A964CF /* GameDetailViewController.swift */; };
 		9AB0C63C2946405D00A964CF /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB0C63B2946405D00A964CF /* GameDetailViewModel.swift */; };
 		9AB0C63E29468D3D00A964CF /* MetaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB0C63D29468D3D00A964CF /* MetaModel.swift */; };
+		9ABC4B5A294B2678006CFD7B /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B59294B2678006CFD7B /* NoteListViewController.swift */; };
+		9ABC4B5C294B2694006CFD7B /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B5B294B2694006CFD7B /* NoteListViewModel.swift */; };
+		9ABC4B5F294B26C3006CFD7B /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B5D294B26C3006CFD7B /* NoteTableViewCell.swift */; };
+		9ABC4B60294B26C3006CFD7B /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC4B5E294B26C3006CFD7B /* NoteTableViewCell.xib */; };
 		9ACE71292941ED4300F6E604 /* GameListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */; };
 		9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */; };
 		9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE712C2941F1A600F6E604 /* Kingfisher */; };
@@ -92,6 +96,10 @@
 		9AB0C6392946403A00A964CF /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
 		9AB0C63B2946405D00A964CF /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 		9AB0C63D29468D3D00A964CF /* MetaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaModel.swift; sourceTree = "<group>"; };
+		9ABC4B59294B2678006CFD7B /* NoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
+		9ABC4B5B294B2694006CFD7B /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
+		9ABC4B5D294B26C3006CFD7B /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		9ABC4B5E294B26C3006CFD7B /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewCell.swift; sourceTree = "<group>"; };
 		9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				9A4405B8293F560B00E4E2F2 /* Scene */,
+				9A8DB2D3294A460800CBFEFB /* Collection+Safe.swift */,
 				9A4405B3293F4E4F00E4E2F2 /* Network */,
 				9AACCA4E29486FCE0010A7E3 /* CoreData */,
 				9A4405B2293F4D9E00E4E2F2 /* App */,
@@ -199,7 +208,7 @@
 				9A4405B9293F561900E4E2F2 /* GameList */,
 				9AB0C631294637C100A964CF /* GameDetail */,
 				9AACCA45294865BA0010A7E3 /* FavoriteList */,
-				9A8DB2D3294A460800CBFEFB /* Collection+Safe.swift */,
+				9ABC4B55294B25F1006CFD7B /* NoteList */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -339,6 +348,41 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9ABC4B55294B25F1006CFD7B /* NoteList */ = {
+			isa = PBXGroup;
+			children = (
+				9ABC4B58294B2631006CFD7B /* Controller */,
+				9ABC4B57294B262A006CFD7B /* ViewModel */,
+				9ABC4B56294B2621006CFD7B /* View */,
+			);
+			path = NoteList;
+			sourceTree = "<group>";
+		};
+		9ABC4B56294B2621006CFD7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ABC4B5D294B26C3006CFD7B /* NoteTableViewCell.swift */,
+				9ABC4B5E294B26C3006CFD7B /* NoteTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ABC4B57294B262A006CFD7B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ABC4B5B294B2694006CFD7B /* NoteListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ABC4B58294B2631006CFD7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9ABC4B59294B2678006CFD7B /* NoteListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -452,6 +496,7 @@
 				9A44058F293F48FE00E4E2F2 /* LaunchScreen.storyboard in Resources */,
 				9A44058C293F48FE00E4E2F2 /* Assets.xcassets in Resources */,
 				9A440587293F48FD00E4E2F2 /* Main.storyboard in Resources */,
+				9ABC4B60294B26C3006CFD7B /* NoteTableViewCell.xib in Resources */,
 				9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */,
 				9A8B6BC9294733DE005FA4C3 /* OtherCollectionViewCell.xib in Resources */,
 			);
@@ -479,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AACCA4429483CC60010A7E3 /* ResultModel.swift in Sources */,
+				9ABC4B5F294B26C3006CFD7B /* NoteTableViewCell.swift in Sources */,
 				9AB0C63829463FAD00A964CF /* GameDeveloperModel.swift in Sources */,
 				9AACCA4C294866780010A7E3 /* FavoriteListViewModel.swift in Sources */,
 				9A8DB2D4294A460800CBFEFB /* Collection+Safe.swift in Sources */,
@@ -486,6 +532,8 @@
 				9AB0C63C2946405D00A964CF /* GameDetailViewModel.swift in Sources */,
 				9A4405B5293F4EFA00E4E2F2 /* Constants.swift in Sources */,
 				9A4405BF293F58DD00E4E2F2 /* GameListModel.swift in Sources */,
+				9ABC4B5C294B2694006CFD7B /* NoteListViewModel.swift in Sources */,
+				9ABC4B5A294B2678006CFD7B /* NoteListViewController.swift in Sources */,
 				9AACCA4A2948665C0010A7E3 /* FavoriteListViewController.swift in Sources */,
 				9A4405C1293F5A4200E4E2F2 /* GameListResultModel.swift in Sources */,
 				9AB0C63E29468D3D00A964CF /* MetaModel.swift in Sources */,
