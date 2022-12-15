@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="-847" y="344"/>
         </scene>
-        <!--View Controller-->
+        <!--Note List View Controller-->
         <scene sceneID="ZhD-F0-0J0">
             <objects>
-                <viewController id="KWa-ia-U1u" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoteListViewController" id="KWa-ia-U1u" customClass="NoteListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GuG-GX-dLC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,10 +400,28 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dNt-SU-KMW"/>
+                    <connections>
+                        <outlet property="tableView" destination="53g-At-rTh" id="4lP-2i-PlR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAM-XQ-cdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="184" y="1044"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="OGv-jr-Qbt">
+            <objects>
+                <viewController storyboardIdentifier="AddNoteViewController" id="EPD-14-f1f" customClass="AddNoteViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aw7-Da-mLk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZgD-7F-VEX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17J-oc-rhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039" y="1044"/>
         </scene>
         <!--Item-->
         <scene sceneID="9YA-hn-Xlf">
