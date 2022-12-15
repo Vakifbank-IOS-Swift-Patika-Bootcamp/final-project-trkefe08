@@ -24,7 +24,7 @@ final class GameDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet private weak var favoriteButton: UIButton!
+    @IBOutlet private weak var addFavoriteButton: UIBarButtonItem!
     
     //MARK: Variables
     var gameId: Int?
@@ -39,11 +39,19 @@ final class GameDetailViewController: UIViewController {
         viewModel.fetchOtherGamesDetail(id: id)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.showFavorite(id: gameId ?? 0)
+    }
+    
+    
     //MARK: IBActions
-    @IBAction func addFavoriteButton(_ sender: Any) {
-        
+    @IBAction func addFavoriteButton(_ sender: UIBarButtonItem) {
+        viewModel.addFavorite(id: gameId ?? 0)
+
     }
 }
+
 
 //MARK: Extensions
 extension GameDetailViewController: GameDetailViewModelDelegate {
@@ -57,6 +65,15 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         guard let url = viewModel.getGameImageURL() else { return }
         gameImageView.kf.setImage(with: url)
         //otherGamesCollectionView.reloadData()
+    }
+    
+    func didAddFavorite(status: Bool) {
+        if status == false {
+            self.addFavoriteButton.image = UIImage(systemName: "heart.fill")
+        } else {
+            self.addFavoriteButton.image = UIImage(systemName: "heart")
+
+        }
     }
 }
 

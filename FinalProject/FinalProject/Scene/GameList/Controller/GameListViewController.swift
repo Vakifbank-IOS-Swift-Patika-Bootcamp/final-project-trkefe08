@@ -23,6 +23,7 @@ final class GameListViewController: UIViewController {
     private var searchBar = UISearchBar()
     private var searchController = UISearchController(searchResultsController: nil)
     private var cellSpacingHeight: CGFloat = 1
+    private var one: Int = 1
     private let indexPath: IndexPath = IndexPath(row:0, section:0)
     
     //MARK: Lifecycle
@@ -69,7 +70,7 @@ extension GameListViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return one
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

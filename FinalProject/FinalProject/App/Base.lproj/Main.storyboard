@@ -61,6 +61,37 @@
             </objects>
             <point key="canvasLocation" x="184.61538461538461" y="-341.23222748815164"/>
         </scene>
+        <!--Favorite List View Controller-->
+        <scene sceneID="4PV-vd-1yB">
+            <objects>
+                <viewController id="eL5-wm-dEk" customClass="FavoriteListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rxW-03-jxX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dZ5-qF-5OF">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ywq-E7-3K2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ywq-E7-3K2" firstAttribute="bottom" secondItem="dZ5-qF-5OF" secondAttribute="bottom" id="68U-dL-601"/>
+                            <constraint firstItem="ywq-E7-3K2" firstAttribute="trailing" secondItem="dZ5-qF-5OF" secondAttribute="trailing" id="YR0-cI-N6T"/>
+                            <constraint firstItem="dZ5-qF-5OF" firstAttribute="leading" secondItem="ywq-E7-3K2" secondAttribute="leading" id="rdt-rF-pUh"/>
+                            <constraint firstItem="dZ5-qF-5OF" firstAttribute="top" secondItem="ywq-E7-3K2" secondAttribute="top" id="vD2-hX-TGG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lxd-9x-jxF"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="dZ5-qF-5OF" id="skl-Y5-7iI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ie-oL-X0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="184" y="344"/>
+        </scene>
         <!--Game Detail View Controller-->
         <scene sceneID="SyS-p2-XfM">
             <objects>
@@ -265,26 +296,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="U65-t7-msl">
-                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" style="plain" id="oLh-uB-wKT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qeT-Gx-8WE">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" red="1" green="0.32602844240000001" blue="0.25244206479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="addFavoriteButton:" destination="KLy-Cs-HZ7" eventType="touchUpInside" id="NB0-Hv-xHN"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" id="PuC-Sy-vt7">
+                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                             <color key="tintColor" red="1" green="0.32602844240000001" blue="0.25244206479999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addFavoriteButton:" destination="KLy-Cs-HZ7" id="eDn-Hs-vM6"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
+                        <outlet property="addFavoriteButton" destination="PuC-Sy-vt7" id="vfA-mp-hdy"/>
                         <outlet property="descriptionLabel" destination="cuN-at-uVd" id="twf-pC-S9C"/>
-                        <outlet property="favoriteButton" destination="qeT-Gx-8WE" id="5xs-sC-A4J"/>
                         <outlet property="gameImageView" destination="czO-97-bAB" id="Q4l-Ld-LHE"/>
                         <outlet property="metaScoreLabel" destination="stt-Lp-ju1" id="dhd-xt-1WI"/>
                         <outlet property="nameLabel" destination="4Si-7g-cl7" id="7Tm-Z8-wc5"/>
@@ -308,6 +331,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zn6-5m-Q7V" kind="relationship" relationship="viewControllers" id="hau-mg-sSB"/>
+                        <segue destination="bc6-UX-Faq" kind="relationship" relationship="viewControllers" id="NuB-9l-2ya"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t18-8y-suX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -332,6 +356,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPs-cj-BjB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-846" y="-341"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Tnr-A2-17s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bc6-UX-Faq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fPM-Ab-vOc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ApZ-Cy-k1a">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eL5-wm-dEk" kind="relationship" relationship="rootViewController" id="7fo-CE-4v2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B6l-hz-dww" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-847" y="344"/>
         </scene>
     </scenes>
     <resources>
