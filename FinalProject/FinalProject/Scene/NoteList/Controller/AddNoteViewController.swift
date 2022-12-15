@@ -9,6 +9,10 @@ import UIKit
 
 class AddNoteViewController: UIViewController {
 
+    @IBOutlet weak var gamePickerView: UIPickerView!
+    @IBOutlet weak var gameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

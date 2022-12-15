@@ -415,9 +415,47 @@
                     <view key="view" contentMode="scaleToFill" id="Aw7-Da-mLk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="my3-J3-Lh4">
+                                <rect key="frame" x="0.0" y="75" width="393" height="206"/>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W32-8F-7ZE">
+                                <rect key="frame" x="0.0" y="297" width="393" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="h0o-tQ-AKD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-6A-nhM">
+                                <rect key="frame" x="48" y="557" width="297" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ghN-NL-gkM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZgD-7F-VEX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZgD-7F-VEX" firstAttribute="trailing" secondItem="qtd-6A-nhM" secondAttribute="trailing" constant="48" id="0RI-K7-gkI"/>
+                            <constraint firstItem="W32-8F-7ZE" firstAttribute="leading" secondItem="ZgD-7F-VEX" secondAttribute="leading" id="83K-dh-44N"/>
+                            <constraint firstItem="my3-J3-Lh4" firstAttribute="leading" secondItem="ZgD-7F-VEX" secondAttribute="leading" id="MsG-ZW-l28"/>
+                            <constraint firstItem="ZgD-7F-VEX" firstAttribute="bottom" secondItem="qtd-6A-nhM" secondAttribute="bottom" constant="216" id="MvZ-7F-QKC"/>
+                            <constraint firstItem="W32-8F-7ZE" firstAttribute="top" secondItem="my3-J3-Lh4" secondAttribute="bottom" constant="16" id="NaY-Mh-BAx"/>
+                            <constraint firstItem="qtd-6A-nhM" firstAttribute="top" secondItem="W32-8F-7ZE" secondAttribute="bottom" constant="10" id="SNJ-mj-9ZG"/>
+                            <constraint firstItem="ZgD-7F-VEX" firstAttribute="trailing" secondItem="W32-8F-7ZE" secondAttribute="trailing" id="TYM-JJ-yFd"/>
+                            <constraint firstItem="my3-J3-Lh4" firstAttribute="trailing" secondItem="ZgD-7F-VEX" secondAttribute="trailing" id="Vbg-5D-QDt"/>
+                            <constraint firstItem="qtd-6A-nhM" firstAttribute="leading" secondItem="ZgD-7F-VEX" secondAttribute="leading" constant="48" id="XRk-zg-ttp"/>
+                            <constraint firstItem="my3-J3-Lh4" firstAttribute="top" secondItem="ZgD-7F-VEX" secondAttribute="top" constant="16" id="ohs-jj-Xff"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gamePickerView" destination="my3-J3-Lh4" id="7vz-Ae-Ozc"/>
+                        <outlet property="gameTextField" destination="W32-8F-7ZE" id="ICI-xW-GDv"/>
+                        <outlet property="saveButton" destination="qtd-6A-nhM" id="kN0-L3-8jG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17J-oc-rhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

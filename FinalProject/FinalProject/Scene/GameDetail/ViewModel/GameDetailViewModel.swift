@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//MARK: Protocols
+//MARK: - Protocols
 protocol GameDetailViewModelProtocol {
     var delegate: GameDetailViewModelDelegate? { get set }
     func fetchGameDetail(id: Int)
@@ -28,15 +28,15 @@ protocol GameDetailViewModelDelegate: AnyObject {
     func gameLoaded()
     func didAddFavorite(status: Bool)
 }
-//MARK: Class
+//MARK: - Class
 final class GameDetailViewModel: GameDetailViewModelProtocol {
     
-    //MARK: Variables
+    //MARK: - Variables
     weak var delegate: GameDetailViewModelDelegate?
     private var game: GameDetailModel?
     private var gameSeries: [ResultModel]?
     
-    //MARK: Methods
+    //MARK: - Methods
     func fetchGameDetail(id: Int) {
         RawgDBClient.shared.getGameDetail(with: id) { [weak self] result in
             switch result {

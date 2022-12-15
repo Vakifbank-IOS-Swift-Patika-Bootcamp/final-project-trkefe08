@@ -18,6 +18,7 @@ final class GameListViewController: UIViewController {
     }
     
     @IBOutlet weak var gamePopUpButton: UIButton!
+    
     //MARK: Variables
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     private var searchBar = UISearchBar()

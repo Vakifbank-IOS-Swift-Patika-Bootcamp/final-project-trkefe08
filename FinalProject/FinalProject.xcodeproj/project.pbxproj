@@ -41,6 +41,8 @@
 		9ABC4B5F294B26C3006CFD7B /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B5D294B26C3006CFD7B /* NoteTableViewCell.swift */; };
 		9ABC4B60294B26C3006CFD7B /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC4B5E294B26C3006CFD7B /* NoteTableViewCell.xib */; };
 		9ABC4B62294B2823006CFD7B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B61294B2823006CFD7B /* AddNoteViewController.swift */; };
+		9ABC4B64294B2D6B006CFD7B /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B63294B2D6B006CFD7B /* AddNoteViewModel.swift */; };
+		9ABC4B66294B32F3006CFD7B /* NoteCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B65294B32F3006CFD7B /* NoteCoreDataManager.swift */; };
 		9ACE71292941ED4300F6E604 /* GameListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */; };
 		9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */; };
 		9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE712C2941F1A600F6E604 /* Kingfisher */; };
@@ -102,6 +104,8 @@
 		9ABC4B5D294B26C3006CFD7B /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		9ABC4B5E294B26C3006CFD7B /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		9ABC4B61294B2823006CFD7B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		9ABC4B63294B2D6B006CFD7B /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		9ABC4B65294B32F3006CFD7B /* NoteCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCoreDataManager.swift; sourceTree = "<group>"; };
 		9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewCell.swift; sourceTree = "<group>"; };
 		9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,6 +311,7 @@
 			children = (
 				9AACCA51294874130010A7E3 /* CoreDataStack.swift */,
 				9AACCA4F29486FF30010A7E3 /* CoreDataManager.swift */,
+				9ABC4B65294B32F3006CFD7B /* NoteCoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				9ABC4B5B294B2694006CFD7B /* NoteListViewModel.swift */,
+				9ABC4B63294B2D6B006CFD7B /* AddNoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,9 +532,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABC4B64294B2D6B006CFD7B /* AddNoteViewModel.swift in Sources */,
 				9AACCA4429483CC60010A7E3 /* ResultModel.swift in Sources */,
 				9ABC4B5F294B26C3006CFD7B /* NoteTableViewCell.swift in Sources */,
 				9ABC4B62294B2823006CFD7B /* AddNoteViewController.swift in Sources */,
+				9ABC4B66294B32F3006CFD7B /* NoteCoreDataManager.swift in Sources */,
 				9AB0C63829463FAD00A964CF /* GameDeveloperModel.swift in Sources */,
 				9AACCA4C294866780010A7E3 /* FavoriteListViewModel.swift in Sources */,
 				9A8DB2D4294A460800CBFEFB /* Collection+Safe.swift in Sources */,
