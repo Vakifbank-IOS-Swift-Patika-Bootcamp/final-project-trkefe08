@@ -17,19 +17,19 @@ enum GameCoreDataKeys: String {
 final class NoteCoreDataManager {
     static let shared = NoteCoreDataManager()
     private var coreDataStack: CoreDataStack
-    private let managedContext: NSManagedObjectContext!
+    private var managedContext: NSManagedObjectContext!
     
     private init(coreDataStack: CoreDataStack = CoreDataStack(entityName: "Note")) {
         self.coreDataStack = coreDataStack
     }
     
     @discardableResult
-    func saveNote(noteText: String, episode episodeId: Int) -> Note? {
+    func saveNote(noteText: String, game gameId: Int) -> Note? {
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
         let note = NSManagedObject(entity: entity, insertInto: managedContext)
         note.setValue(UUID(), forKey: GameCoreDataKeys.noteId.rawValue)
         note.setValue(noteText, forKeyPath: GameCoreDataKeys.note.rawValue)
-        note.setValue(episodeId, forKey: GameCoreDataKeys.episodeId.rawValue)
+        note.setValue(gameId, forKey: GameCoreDataKeys.gameId.rawValue)
         
         do {
             try managedContext.save()
