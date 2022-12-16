@@ -35,6 +35,8 @@ class NoteListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        title = "Notes".localized()
+        tabBarItem.title = "Notes".localized()
     }
     
     override func viewDidLayoutSubviews() {

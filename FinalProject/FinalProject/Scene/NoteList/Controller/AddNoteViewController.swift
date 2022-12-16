@@ -37,15 +37,15 @@ class AddNoteViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if selectedGamePickerView > 0, let note = gameTextField.text  {
+       /* if selectedGamePickerView > 0, let note = gameTextField.text  {
             let gameId = 
             if editNote.0 == false {
                 viewModel.saveNote(note: note, id: <#T##Int#>)
-            }
+            }*/
         }
     }
     
-}
+//}
 
 extension AddNoteViewController: AddNoteViewModelDelegate {
     func gameLoaded() {

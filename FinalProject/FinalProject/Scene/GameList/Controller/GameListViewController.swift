@@ -34,24 +34,26 @@ final class GameListViewController: UIViewController {
         viewModel.fetchGamesList()
         defaultSearchController()
         setPopUpButton()
+        title = "Games".localized()
+        tabBarItem.title = "Games".localized()
     }
     
     //MARK: Methods
     func setPopUpButton() {
         let optionClosure = {(action : UIAction) in
-            if action.title == "Popular" {
+            if action.title == "Popular".localized() {
                 self.viewModel.getPopularGames()
                 self.gameListTableView.reloadData()
                 self.gameListTableView.scrollToRow(at: self.indexPath, at: UITableView.ScrollPosition.top, animated: true)
-            } else if action.title == "Games" {
+            } else if action.title == "Games".localized() {
                 self.viewModel.fetchGamesList()
                 self.gameListTableView.reloadData()
                 self.gameListTableView.scrollToRow(at: self.indexPath, at: UITableView.ScrollPosition.top, animated: true)
             }
         }
         gamePopUpButton.menu = UIMenu(children: [
-            UIAction(title: "Games", state: .on, handler: optionClosure),
-            UIAction(title: "Popular", handler: optionClosure)
+            UIAction(title: "Games".localized(), state: .on, handler: optionClosure),
+            UIAction(title: "Popular".localized(), handler: optionClosure)
         ])
     }
 }
