@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//MARK: Protocol
+//MARK: - Protocol
 protocol GameListViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
     func fetchGamesList()
@@ -17,13 +17,13 @@ protocol GameListViewModelProtocol {
     func searchFetchGamesList(textSearch: String)
     func getPopularGames()
 }
-//MARK: Delegate
+//MARK: - Delegate
 protocol GameListViewModelDelegate: AnyObject {
     func gamesLoaded()
 }
 
 final class GameListViewModel: GameListViewModelProtocol {
-//MARK: Variables
+//MARK: - Variables
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListResultModel]? = []
     private var pagination: Int = 0
@@ -31,7 +31,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     private var searchPagination: Int = 0
     private var isSearchActive: Bool = false
     
-//MARK: Methods
+//MARK: - Methods
     func fetchGamesList() {
         RawgDBClient.shared.getGamesList { [weak self] result in
             switch result {

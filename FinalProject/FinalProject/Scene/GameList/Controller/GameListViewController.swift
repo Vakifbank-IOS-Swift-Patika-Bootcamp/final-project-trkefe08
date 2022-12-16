@@ -19,15 +19,16 @@ final class GameListViewController: UIViewController {
     
     @IBOutlet weak var gamePopUpButton: UIButton!
     
-    //MARK: Variables
+    //MARK: - Variables
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
     private var searchBar = UISearchBar()
     private var searchController = UISearchController(searchResultsController: nil)
     private var cellSpacingHeight: CGFloat = 1
     private var one: Int = 1
-    private let indexPath: IndexPath = IndexPath(row:0, section:0)
+    private var indexPath: IndexPath = IndexPath(row:0, section:0)
+    var viewNotification: LocalNotificationProtocol = LocalNotificationManager()
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -36,9 +37,11 @@ final class GameListViewController: UIViewController {
         setPopUpButton()
         title = "Games".localized()
         tabBarItem.title = "Games".localized()
+        viewNotification.requestNotificationAuthorization()
+        viewNotification.sendNotification()
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     func setPopUpButton() {
         let optionClosure = {(action : UIAction) in
             if action.title == "Popular".localized() {
@@ -58,7 +61,7 @@ final class GameListViewController: UIViewController {
     }
 }
 
-//MARK: Extensions
+//MARK: - Extensions
 extension GameListViewController: GameListViewModelDelegate {
     func gamesLoaded() {
         gameListTableView.reloadData()
