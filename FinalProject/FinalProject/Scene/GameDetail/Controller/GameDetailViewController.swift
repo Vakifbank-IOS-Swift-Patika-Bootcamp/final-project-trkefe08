@@ -8,7 +8,13 @@
 import UIKit
 
 final class GameDetailViewController: UIViewController {
-    //MARK: IBOutlets
+    //MARK: - IBOutlets
+    
+    @IBOutlet private weak var releaseLocalize: UILabel!
+    @IBOutlet private weak var ratingLocalize: UILabel!
+    @IBOutlet private weak var metaLocalize: UILabel!
+    @IBOutlet private weak var descriptLocalize: UILabel!
+    @IBOutlet private weak var otherLocalize: UILabel!
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var releaseDateLabel: UILabel!
@@ -26,7 +32,7 @@ final class GameDetailViewController: UIViewController {
     
     @IBOutlet private weak var addFavoriteButton: UIBarButtonItem!
     
-    //MARK: Variables
+    //MARK: - Variables
     var gameId: Int?
     private var viewModel: GameDetailViewModelProtocol = GameDetailViewModel()
     
@@ -37,6 +43,7 @@ final class GameDetailViewController: UIViewController {
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: id)
         viewModel.fetchOtherGamesDetail(id: id)
+        title = "Details".localized()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,15 +52,14 @@ final class GameDetailViewController: UIViewController {
     }
     
     
-    //MARK: IBActions
+    //MARK: - IBActions
     @IBAction func addFavoriteButton(_ sender: UIBarButtonItem) {
         viewModel.addFavorite(id: gameId ?? 0)
-
     }
 }
 
 
-//MARK: Extensions
+//MARK: - Extensions
 extension GameDetailViewController: GameDetailViewModelDelegate {
     func gameLoaded() {
         nameLabel.text = viewModel.getGameTitle()
@@ -65,6 +71,12 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
         guard let url = viewModel.getGameImageURL() else { return }
         gameImageView.kf.setImage(with: url)
         //otherGamesCollectionView.reloadData()
+        releaseLocalize.text = "Release Date".localized()
+        ratingLocalize.text = "Rating".localized()
+        metaLocalize.text = "Meta Score".localized()
+        descriptLocalize.text = "Description".localized()
+        otherLocalize.text = "Other Games in The Series".localized()
+        
     }
     
     func didAddFavorite(status: Bool) {

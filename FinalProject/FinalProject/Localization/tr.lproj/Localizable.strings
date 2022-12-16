@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Tarik Efe on 16.12.2022.
+  
+*/
+
+"Release Date" = "Çıkış tarihi";
+"Games" = "Oyunlar";
+"Favorites" = "Favoriler";
+"Search" = "Arama";
+"Search for a Game" = "Oyun için arama yap";
+"Rating" = "Puan";
+"Top Rating" = "En yüksek Puan";
+"Popular" = "Popüler";
+"Description" = "Tanım";
+"Other Games in The Series" = "Serideki diğer Oyunlar";
+"Meta Score" = "Meta Puan";
+"Details" = "Detaylar";
+"Notes" = "Notlar";
+

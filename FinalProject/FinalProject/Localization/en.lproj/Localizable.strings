@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  FinalProject
+
+  Created by Tarik Efe on 16.12.2022.
+  
+*/
+
+"Release Date" = "Release Date";
+"Games" = "Games";
+"Favorites" = "Favorites";
+"Search" = "Search";
+"Search for a Game" = "Search for a Game";
+"Rating" = "Rating";
+"Top Rating" = "Top Rating";
+"Popular" = "Popular";
+"Description" = "Description";
+"Other Games in The Series" = "Other Games in The Series";
+"Notes" = "Notes";
+"Meta Score" = "Meta Score";
+"Details" = "Details";
+

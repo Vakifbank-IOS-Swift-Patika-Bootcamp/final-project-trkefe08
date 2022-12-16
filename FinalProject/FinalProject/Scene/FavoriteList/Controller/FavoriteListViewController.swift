@@ -25,6 +25,8 @@ class FavoriteListViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGamesFromCoreData()
+        title = "Favorites".localized()
+        tabBarItem.title = "Favorites".localized()
     }
 }
 
