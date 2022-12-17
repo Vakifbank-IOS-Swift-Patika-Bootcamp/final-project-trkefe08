@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GameListViewController: UIViewController {
+final class GameListViewController: BaseViewController {
     //MARK: Outlets
     @IBOutlet private weak var gameListTableView: UITableView! {
         didSet {
@@ -33,6 +33,7 @@ final class GameListViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.fetchGamesList()
+        indicator.startAnimating()
         defaultSearchController()
         setPopUpButton()
         title = "Games".localized()
@@ -40,7 +41,6 @@ final class GameListViewController: UIViewController {
         viewNotification.requestNotificationAuthorization()
         viewNotification.sendNotification()
     }
-    
     //MARK: - Methods
     func setPopUpButton() {
         let optionClosure = {(action : UIAction) in
@@ -65,6 +65,7 @@ final class GameListViewController: UIViewController {
 extension GameListViewController: GameListViewModelDelegate {
     func gamesLoaded() {
         gameListTableView.reloadData()
+        indicator.stopAnimating()
     }
 }
 

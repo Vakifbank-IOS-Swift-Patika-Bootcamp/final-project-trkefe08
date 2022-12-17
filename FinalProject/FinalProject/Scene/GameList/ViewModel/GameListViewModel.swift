@@ -22,7 +22,7 @@ protocol GameListViewModelDelegate: AnyObject {
     func gamesLoaded()
 }
 
-final class GameListViewModel: GameListViewModelProtocol {
+final class GameListViewModel: BaseViewController, GameListViewModelProtocol {
 //MARK: - Variables
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameListResultModel]? = []
