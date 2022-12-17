@@ -27,6 +27,9 @@
 		9A8BFCC7294C84D900E9E9CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A8BFCC9294C84D900E9E9CA /* Localizable.strings */; };
 		9A8BFCCB294C85F500E9E9CA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BFCCA294C85F500E9E9CA /* String+Extension.swift */; };
 		9A8DB2D4294A460800CBFEFB /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8DB2D3294A460800CBFEFB /* Collection+Safe.swift */; };
+		9A987FA0294DC17300C28218 /* SwiftAlertView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A987F9F294DC17300C28218 /* SwiftAlertView */; };
+		9A987FA3294DC18600C28218 /* MaterialActivityIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 9A987FA2294DC18600C28218 /* MaterialActivityIndicator */; };
+		9A987FA6294DC1AC00C28218 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A987FA5294DC1AC00C28218 /* BaseViewController.swift */; };
 		9AACCA4229483C770010A7E3 /* GameSeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACCA4129483C770010A7E3 /* GameSeriesModel.swift */; };
 		9AACCA4429483CC60010A7E3 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACCA4329483CC60010A7E3 /* ResultModel.swift */; };
 		9AACCA4A2948665C0010A7E3 /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACCA492948665C0010A7E3 /* FavoriteListViewController.swift */; };
@@ -46,7 +49,6 @@
 		9ABC4B62294B2823006CFD7B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B61294B2823006CFD7B /* AddNoteViewController.swift */; };
 		9ABC4B64294B2D6B006CFD7B /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B63294B2D6B006CFD7B /* AddNoteViewModel.swift */; };
 		9ABC4B66294B32F3006CFD7B /* NoteCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B65294B32F3006CFD7B /* NoteCoreDataManager.swift */; };
-		9ABC4B68294B555E006CFD7B /* GameUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC4B67294B555E006CFD7B /* GameUtility.swift */; };
 		9ACE71292941ED4300F6E604 /* GameListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */; };
 		9ACE712A2941ED4300F6E604 /* GameListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */; };
 		9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE712C2941F1A600F6E604 /* Kingfisher */; };
@@ -95,6 +97,7 @@
 		9A8BFCCA294C85F500E9E9CA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		9A8BFCCE294C873200E9E9CA /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9A8DB2D3294A460800CBFEFB /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
+		9A987FA5294DC1AC00C28218 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9AACCA4129483C770010A7E3 /* GameSeriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSeriesModel.swift; sourceTree = "<group>"; };
 		9AACCA4329483CC60010A7E3 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		9AACCA492948665C0010A7E3 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +117,6 @@
 		9ABC4B61294B2823006CFD7B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		9ABC4B63294B2D6B006CFD7B /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		9ABC4B65294B32F3006CFD7B /* NoteCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCoreDataManager.swift; sourceTree = "<group>"; };
-		9ABC4B67294B555E006CFD7B /* GameUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameUtility.swift; sourceTree = "<group>"; };
 		9ACE71272941ED4300F6E604 /* GameListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListTableViewCell.swift; sourceTree = "<group>"; };
 		9ACE71282941ED4300F6E604 /* GameListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A987FA0294DC17300C28218 /* SwiftAlertView in Frameworks */,
+				9A987FA3294DC18600C28218 /* MaterialActivityIndicator in Frameworks */,
 				9ACE712D2941F1A600F6E604 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +172,7 @@
 		9A44057E293F48FD00E4E2F2 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				9A987FA4294DC19400C28218 /* Base */,
 				9AB03F70294CCC0E00351348 /* LocalNotification */,
 				9A8BFCC4294C846300E9E9CA /* Localization */,
 				9A8BFCC3294C842700E9E9CA /* Extension */,
@@ -226,7 +231,6 @@
 				9AB0C631294637C100A964CF /* GameDetail */,
 				9AACCA45294865BA0010A7E3 /* FavoriteList */,
 				9ABC4B55294B25F1006CFD7B /* NoteList */,
-				9ABC4B67294B555E006CFD7B /* GameUtility.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -300,6 +304,14 @@
 				9A8BFCC9294C84D900E9E9CA /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		9A987FA4294DC19400C28218 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9A987FA5294DC1AC00C28218 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		9AACCA45294865BA0010A7E3 /* FavoriteList */ = {
@@ -447,6 +459,8 @@
 			name = FinalProject;
 			packageProductDependencies = (
 				9ACE712C2941F1A600F6E604 /* Kingfisher */,
+				9A987F9F294DC17300C28218 /* SwiftAlertView */,
+				9A987FA2294DC18600C28218 /* MaterialActivityIndicator */,
 			);
 			productName = FinalProject;
 			productReference = 9A44057C293F48FD00E4E2F2 /* FinalProject.app */;
@@ -523,6 +537,8 @@
 			mainGroup = 9A440573293F48FD00E4E2F2;
 			packageReferences = (
 				9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				9A987F9E294DC17300C28218 /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
+				9A987FA1294DC18600C28218 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */,
 			);
 			productRefGroup = 9A44057D293F48FD00E4E2F2 /* Products */;
 			projectDirPath = "";
@@ -573,6 +589,7 @@
 			files = (
 				9ABC4B64294B2D6B006CFD7B /* AddNoteViewModel.swift in Sources */,
 				9AACCA4429483CC60010A7E3 /* ResultModel.swift in Sources */,
+				9A987FA6294DC1AC00C28218 /* BaseViewController.swift in Sources */,
 				9ABC4B5F294B26C3006CFD7B /* NoteTableViewCell.swift in Sources */,
 				9ABC4B62294B2823006CFD7B /* AddNoteViewController.swift in Sources */,
 				9ABC4B66294B32F3006CFD7B /* NoteCoreDataManager.swift in Sources */,
@@ -601,7 +618,6 @@
 				9A44058A293F48FD00E4E2F2 /* FinalProject.xcdatamodeld in Sources */,
 				9AACCA4229483C770010A7E3 /* GameSeriesModel.swift in Sources */,
 				9A440582293F48FD00E4E2F2 /* SceneDelegate.swift in Sources */,
-				9ABC4B68294B555E006CFD7B /* GameUtility.swift in Sources */,
 				9AB0C63A2946403A00A964CF /* GameDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,6 +967,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9A987F9E294DC17300C28218 /* XCRemoteSwiftPackageReference "SwiftAlertView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dinhquan/SwiftAlertView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		9A987FA1294DC18600C28218 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nspavlo/MaterialActivityIndicator";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -962,6 +994,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9A987F9F294DC17300C28218 /* SwiftAlertView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A987F9E294DC17300C28218 /* XCRemoteSwiftPackageReference "SwiftAlertView" */;
+			productName = SwiftAlertView;
+		};
+		9A987FA2294DC18600C28218 /* MaterialActivityIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A987FA1294DC18600C28218 /* XCRemoteSwiftPackageReference "MaterialActivityIndicator" */;
+			productName = MaterialActivityIndicator;
+		};
 		9ACE712C2941F1A600F6E604 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9ACE712B2941F1A600F6E604 /* XCRemoteSwiftPackageReference "Kingfisher" */;
