@@ -8,16 +8,16 @@
 import UIKit
 import MaterialActivityIndicator
 import SwiftAlertView
-
+//MARK: - Class
 class BaseViewController: UIViewController {
-    
+    //MARK: - Variables
     let indicator = MaterialActivityIndicatorView()
-    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActivityIndicatorView()
     }
-    
+    //MARK: - Methods
     private func setupActivityIndicatorView() {
         view.addSubview(indicator)
         setupActivityIndicatorViewConstraints()

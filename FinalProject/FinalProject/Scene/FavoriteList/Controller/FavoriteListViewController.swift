@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FavoriteListViewController: UIViewController {
-    //MARK: IBOutlets
+final class FavoriteListViewController: UIViewController {
+    //MARK: - IBOutlets
     @IBOutlet private weak var favoriteTableView: UITableView! {
         didSet {
             favoriteTableView.delegate = self
@@ -17,10 +17,10 @@ class FavoriteListViewController: UIViewController {
         }
     }
     
-    //MARK: Variables
+    //MARK: - Variables
     private var viewModel: FavoriteListViewModelProtocol = FavoriteListViewModel()
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -30,7 +30,7 @@ class FavoriteListViewController: UIViewController {
     }
 }
 
-//MARK: Extensions
+//MARK: - Extensions
 extension FavoriteListViewController: FavoriteListViewModelDelegate {
     func favoritesLoaded() {
         favoriteTableView.reloadData()

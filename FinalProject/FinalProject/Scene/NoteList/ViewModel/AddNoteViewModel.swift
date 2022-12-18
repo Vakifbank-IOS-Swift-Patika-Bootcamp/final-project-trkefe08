@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: - Protocol
 protocol AddNoteViewModelProtocol {
     var delegate: AddNoteViewModelDelegate? { get set }
     func getNoteCount() -> Int
@@ -17,7 +17,7 @@ protocol AddNoteViewModelProtocol {
     func deleteNote(id: UUID)
     func getNotes() -> [Note]
 }
-
+//MARK: - Delegate
 protocol AddNoteViewModelDelegate: AnyObject {
     func gameLoaded()
 }
@@ -62,6 +62,4 @@ final class AddNoteViewModel: AddNoteViewModelProtocol {
     func getNotes() -> [Note] {
         NoteCoreDataManager.shared.getNotes()
     }
-    
-    
 }

@@ -14,7 +14,6 @@ struct GameDeveloperModel: Codable {
     let imageBackground: String?
     let domain: String?
     
-
     enum CodingKeys: String, CodingKey {
         case id, name, slug
         case gamesCount = "games_count"

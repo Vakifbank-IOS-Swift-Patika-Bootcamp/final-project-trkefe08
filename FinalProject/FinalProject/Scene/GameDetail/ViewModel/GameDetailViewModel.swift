@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//MARK: - Protocols
+//MARK: - Protocol
 protocol GameDetailViewModelProtocol {
     var delegate: GameDetailViewModelDelegate? { get set }
     func fetchGameDetail(id: Int)
@@ -20,7 +20,7 @@ protocol GameDetailViewModelProtocol {
     func addFavorite(id: Int)
     func showFavorite(id: Int)
 }
-
+//MARK: - Delegate
 protocol GameDetailViewModelDelegate: AnyObject {
     func gameLoaded()
     func didAddFavorite(status: Bool)

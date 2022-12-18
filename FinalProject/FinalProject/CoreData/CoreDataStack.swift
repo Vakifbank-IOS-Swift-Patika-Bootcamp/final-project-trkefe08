@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 final class CoreDataStack {
-    
+    //MARK: - Variables
     private let entityName: String
     
     init(entityName: String) {
@@ -30,7 +30,7 @@ final class CoreDataStack {
         let context = storeContainer.viewContext
         return context
     }()
-    
+    //MARK: - Methods
     func saveContext () {
         guard managedContext.hasChanges else {
             return

@@ -15,6 +15,7 @@ enum GameCoreDataKeys: String {
 }
 
 final class NoteCoreDataManager {
+    //MARK: - Variables
     static let shared = NoteCoreDataManager()
     private let managedContext: NSManagedObjectContext!
     
@@ -22,7 +23,7 @@ final class NoteCoreDataManager {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         managedContext = appDelegate.persistentContainer.viewContext
     }
-    
+    //MARK: - Methods
     @discardableResult
     func saveNote(noteText: String, game gameName: String) -> Note? {
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
@@ -61,7 +62,7 @@ final class NoteCoreDataManager {
             let results = try managedContext.fetch(fetchRequest)
             for result in results as! [NSManagedObject] {
                 managedContext.delete(result)
-
+                
                 do  {
                     try managedContext.save()
                 } catch {

@@ -114,7 +114,9 @@
                 <outlet property="gameImageView" destination="ygF-Jk-fcw" id="6Xa-53-ywa"/>
                 <outlet property="nameLabel" destination="D1v-IV-xsr" id="56y-hq-AHQ"/>
                 <outlet property="ratingLabel" destination="FIt-yQ-YsC" id="4L3-9v-cf7"/>
+                <outlet property="ratingTopRatingLabel" destination="8kw-mn-y4f" id="MO9-Rk-2cc"/>
                 <outlet property="releaseDateLabel" destination="ncW-L1-xJW" id="x6v-CO-IJA"/>
+                <outlet property="releaseLocalize" destination="PHO-F1-T4y" id="ZMX-nE-Kdm"/>
                 <outlet property="topRatingLabel" destination="Ck9-nA-YbV" id="Vdq-VX-EVM"/>
             </connections>
             <point key="canvasLocation" x="116.92307692307692" y="43.364928909952603"/>

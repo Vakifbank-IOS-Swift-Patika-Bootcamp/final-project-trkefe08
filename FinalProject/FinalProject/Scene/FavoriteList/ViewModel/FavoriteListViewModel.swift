@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: Protocols
+//MARK: - Protocol
 protocol FavoriteListViewModelProtocol {
     var delegate: FavoriteListViewModelDelegate? { get set }
     func fetchGamesFromCoreData()
@@ -16,12 +16,12 @@ protocol FavoriteListViewModelProtocol {
     func getFavoriteId(at index: Int) -> Int64?
     func deleteFavoriteGame(with favoriteId: Int)
 }
-
+//MARK: - Delegate
 protocol FavoriteListViewModelDelegate: AnyObject {
     func favoritesLoaded()
 }
 
-//MARK: Class
+//MARK: - Class
 final class FavoriteListViewModel: FavoriteListViewModelProtocol {
     weak var delegate: FavoriteListViewModelDelegate?
     var favoriteGames: [FinalProject] = [] {
@@ -30,7 +30,7 @@ final class FavoriteListViewModel: FavoriteListViewModelProtocol {
         }
     }
     
-    //MARK: Methods
+    //MARK: - Methods
     func fetchGamesFromCoreData() {
         CoreDataManager.shared.getFavoriteGamesFromCoreData { result in
             switch result {
