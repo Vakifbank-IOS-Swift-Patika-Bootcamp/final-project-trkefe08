@@ -7,11 +7,17 @@
 
 import UIKit
 
-class NoteListViewController: UIViewController {
+final class NoteListViewController: UIViewController {
     
-    
-    @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
+        }
+    }
+    private var noteList: [Note]?
+    private var viewModel: AddNoteViewModelProtocol = AddNoteViewModel()
     //MARK: - Floating Button
     private let floatingButton: UIButton = {
         let button = UIButton(
@@ -31,7 +37,7 @@ class NoteListViewController: UIViewController {
         
         return button
     }()
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -64,8 +70,38 @@ class NoteListViewController: UIViewController {
     }
     
     @objc private func reloadNewNote() {
-        //self.noteList = CoreDataManager.shared.getNotes()
-        //tableView.reloadData()
+        self.noteList = viewModel.getNotes()
+        tableView.reloadData()
+    }
+
+}
+
+extension NoteListViewController: AddNoteViewModelDelegate {
+    func gameLoaded() {
+        tableView.reloadData()
+    }
+}
+extension NoteListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.getNoteCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as? NoteTableViewCell, let model = viewModel.getNote(at: indexPath.row) else {
+            return UITableViewCell()
+        }
+        cell.configureCell(model: model)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case.delete:
+            guard let id = viewModel.getNote(at: indexPath.row)?.noteId else { return }
+            viewModel.deleteNote(id: id)
+        default:
+            break
+        }
     }
 
 }
