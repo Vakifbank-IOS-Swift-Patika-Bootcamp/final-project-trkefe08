@@ -1,59 +1,22 @@
-# final-project
+# Game App Project
+## :computer: About
+An application for listing, viewing details and adding to favorites games developed with Swift language. I am missing the notes page. I used Kingfisher, Activity indicator and Alert view as 3rd party library.
+In terms of its general structure, the application consists of 3 pages in the tab bar. The games are displayed on the first page, and when I click on the games, they go to the detail pages, where they can be added to the favorites.
+The second page contains the favorites list. It is available in our removal from favourites. The third page is the page where we can add notes to the games, this page is very missing for me, I will only add the design part I made as a screenshot.
 
-Vakıfbank IOS Swift Bootcamp Bitirme Projesi
+## :rocket: Technologies
+- Swift
+- UIKit
+- UrlSession
+- Kingfisher
+- MaterialActivityIndicator
+- SwiftAlertView
 
-Genel Detaylar:
-3 ana ekrandan oluşan public API tabanlı bir uygulaması yapılması beklenmektedir.(API
-sonradan kararlaştırılacaktır.)
-Aşağıda yazılmış olan tüm maddeler ideal uygulamayı tarif etmekle beraber; herkes
-başardığı özelliklere göre değerlendirilecektir.
-Yapılmış maddelerin başarılı uygulanmış olması tüm maddeleri tamamlamaktan daha
-önemlidir.
-Git Kullanımı:
-- Uygulama github.com sayfasına public repo olarak yüklenmelidir.
-- Git commitleri atomic olmalı ve genel commit mesajları kurallarına dikkat
-edilmelidir. - Commit mesajları atılırken branch yapısına dikkat edilmelidir.
-(Develop, Feature vb. branch’ler oluşturulmalıdır.)
-1. Ekran: (Liste Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Item’lar arasında arama yapılabilmelidir.
-- Item’ları sıralama butonu ile sıralanabilmelidir.
-- Sadece item’lar güncellendiğinde görünüm güncellenmelidir. (Ekrana her
-girişte güncelleme olmamalı)
-2. Ekran: (Detay Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Item’a basıldığında ilgili detaya yönlenmelidir.(Alanlar belirtilecektir.)
-- Edit işlemleri için aynı ekran kullanılacaktır.
-- Düzenlemede tüm alanlar eklenmemişse item kaydedilmemelidir.
-3. Ekran: (Yeni Giriş Ekranı)
-- MVVM pattern’i ile yazılmalıdır.
-- Ekran present şekilde açılmalıdır.
-- Ekleme tüm alanlar eklenmemişse item kaydedilmemelidir.
-Uygulama gereklilikleri:
-- SPM veya Cocoapods kullanılmalıdır.
-- Uygulamada hata mesajları ve bekleme esnasında activity indicator
+## Screenshots
 
-kullanılmalıdır.. - İşlemler CoreData ile yapılmalıdır.
-- CoreData’ya bir CoreDataManager üzerinden erişilmelidir.
-- Local push entegrasyonu sağlanmalıdır.
-- Notification yönetimi bir localNotificationManager aracılığıyla
-yapılmalıdır. - Localization sağlanmalıdır.
-- ViewModel localNotificationManager’a notificationManager protokolü üzerinden
-erişmelidir.
-- Uygulamanın unit test yaklaşımı ve coverage yüzdesi değerlendirme kriterleri
-arasındadır.
-- UI ve animasyon tamamen tercihe bağlı olup farklı cihaz görünümleri
-gözetilmelidir.
-
-1- API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
-2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.
-3- ReadMe dosyası repoda olmalıdır.
-4- Liste ekranı için istenilen filtre kullanılabilir(2022 de çıkan oyunlar, platforma özel
-oyunlar veya popüler oyunlar olabilir.)
-5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.
-6- Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
-Ekrandaki editleme maddesi)
-7- Favorilerin listelendiği bir ekran olacak.
-8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
-düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)
-9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.
+<img width="351" alt="Ekran Resmi 2022-12-18 12 31 32" src="https://user-images.githubusercontent.com/111053405/208291941-03553e2a-feb4-4fd8-af57-4ed0d856c75f.png">
+<img width="351" alt="Ekran Resmi 2022-12-18 12 32 16" src="https://user-images.githubusercontent.com/111053405/208291944-7f172ea2-3a4f-4288-81e6-467d1141c462.png">
+<img width="351" alt="Ekran Resmi 2022-12-18 12 32 45" src="https://user-images.githubusercontent.com/111053405/208291961-6b4cdb6c-73b9-436a-b7c8-4d568eb89b4d.png">
+<img width="351" alt="Ekran Resmi 2022-12-18 12 33 40" src="https://user-images.githubusercontent.com/111053405/208291965-f78bdda3-d47a-4bd9-9d64-cebe8dde0d2d.png">
+<img width="351" alt="Ekran Resmi 2022-12-18 12 34 08" src="https://user-images.githubusercontent.com/111053405/208291967-47f3cd21-df76-4294-be54-8d635a67975f.png">
+<img width="351" alt="Ekran Resmi 2022-12-18 12 34 22" src="https://user-images.githubusercontent.com/111053405/208291973-55cec1ee-db3b-4a65-a9a0-5348a4ee9fc0.png">
