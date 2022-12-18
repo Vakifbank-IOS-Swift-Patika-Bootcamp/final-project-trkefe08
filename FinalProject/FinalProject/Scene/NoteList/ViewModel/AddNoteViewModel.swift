@@ -9,13 +9,13 @@ import UIKit
 
 protocol AddNoteViewModelProtocol {
     var delegate: AddNoteViewModelDelegate? { get set }
-    func fetchAllGames()
-    //func fetchGameId(with id: Int)
     func getNoteCount() -> Int
     func getNote(at index: Int) -> Note?
-    func getGameId(at index: Int) -> Int32?
-    func saveNote(note: String, id: Int)
-    func updateNote(id: UUID, newGameId: Int, newNote: String)
+    func getGameId(at index: Int) -> String?
+    func saveNote(note: String, id: String)
+    func updateNote(id: UUID, newGame: String, newNote: String)
+    func deleteNote(id: UUID)
+    func getNotes() -> [Note]
 }
 
 protocol AddNoteViewModelDelegate: AnyObject {
@@ -35,30 +35,6 @@ final class AddNoteViewModel: AddNoteViewModelProtocol {
     }
     
     //MARK: - Methods
-    func fetchAllGames() {
-        RawgDBClient.shared.getGamesList { [weak self] result in
-            switch result {
-            case .success(let results):
-                self?.games = results?.results
-                self?.delegate?.gameLoaded()
-            case .failure(let error):
-                print(String(describing: error))
-            }
-        }
-    }
-    
-    /* func fetchGameId(with id: Int) {
-     RawgDBClient.shared.getGameDetail(with: id) { [weak self] result in
-     switch result {
-     case .success(let results):
-     self?.games = results?.results
-     self?.delegate?.gamesLoaded()
-     case .failure(let error):
-     print(String(describing: error)) in
-     }
-     }
-     }*/
-    
     func getNoteCount() -> Int {
         notes.count
     }
@@ -67,16 +43,24 @@ final class AddNoteViewModel: AddNoteViewModelProtocol {
         notes[index]
     }
     
-    func getGameId(at index: Int) -> Int32? {
-        notes[safe: index]?.gameId
+    func getGameId(at index: Int) -> String? {
+        notes[safe: index]?.game
     }
     
-    func saveNote(note: String, id: Int) {
+    func saveNote(note: String, id: String) {
         NoteCoreDataManager.shared.saveNote(noteText: note, game: id)
     }
     
-    func updateNote(id: UUID, newGameId: Int, newNote: String) {
-        NoteCoreDataManager.shared.updateNoteBy(id: id, newGameId: newGameId, newNote: newNote)
+    func updateNote(id: UUID, newGame: String, newNote: String) {
+        NoteCoreDataManager.shared.updateNoteBy(id: id, newGame: newGame, newNote: newNote)
+    }
+    
+    func deleteNote(id: UUID) {
+        NoteCoreDataManager.shared.deleteNoteBy(id: id)
+    }
+    
+    func getNotes() -> [Note] {
+        NoteCoreDataManager.shared.getNotes()
     }
     
     

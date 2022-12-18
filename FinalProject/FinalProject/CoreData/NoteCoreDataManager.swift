@@ -11,25 +11,25 @@ import CoreData
 enum GameCoreDataKeys: String {
     case noteId
     case note
-    case gameId
+    case game
 }
 
 final class NoteCoreDataManager {
     static let shared = NoteCoreDataManager()
-    private var coreDataStack: CoreDataStack
-    private var managedContext: NSManagedObjectContext!
+    private let managedContext: NSManagedObjectContext!
     
-    private init(coreDataStack: CoreDataStack = CoreDataStack(entityName: "Note")) {
-        self.coreDataStack = coreDataStack
+    private init() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedContext = appDelegate.persistentContainer.viewContext
     }
     
     @discardableResult
-    func saveNote(noteText: String, game gameId: Int) -> Note? {
+    func saveNote(noteText: String, game gameName: String) -> Note? {
         let entity = NSEntityDescription.entity(forEntityName: "Note", in: managedContext)!
         let note = NSManagedObject(entity: entity, insertInto: managedContext)
         note.setValue(UUID(), forKey: GameCoreDataKeys.noteId.rawValue)
         note.setValue(noteText, forKeyPath: GameCoreDataKeys.note.rawValue)
-        note.setValue(gameId, forKey: GameCoreDataKeys.gameId.rawValue)
+        note.setValue(gameName, forKeyPath: GameCoreDataKeys.game.rawValue)
         
         do {
             try managedContext.save()
@@ -92,10 +92,10 @@ final class NoteCoreDataManager {
         return nil
     }
     
-    func updateNoteBy(id noteId: UUID, newGameId: Int, newNote: String) {
-        var note = getNoteBy(id: noteId)
+    func updateNoteBy(id noteId: UUID, newGame: String, newNote: String) {
+        let note = getNoteBy(id: noteId)
         guard let note = note else { return }
-        note.gameId = Int32(newGameId)
+        note.game = newGame
         note.note = String(newNote)
         
         do {

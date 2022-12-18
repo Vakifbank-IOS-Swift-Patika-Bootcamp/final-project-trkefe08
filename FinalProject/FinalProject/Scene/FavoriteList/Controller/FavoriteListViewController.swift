@@ -56,6 +56,5 @@ extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource
         default:
             break
         }
-        
     }
 }

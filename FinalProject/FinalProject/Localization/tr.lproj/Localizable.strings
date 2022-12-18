@@ -15,8 +15,9 @@
 "Top Rating" = "En yüksek Puan";
 "Popular" = "Popüler";
 "Description" = "Tanım";
-"Other Games in The Series" = "Serideki diğer Oyunlar";
 "Meta Score" = "Meta Puan";
 "Details" = "Detaylar";
 "Notes" = "Notlar";
 "Heyy you've been gone for a long time it's nice to see you!" = "Heyy uzun zamandır yoksun seni görmek ne güzel!";
+"Game cannot be left blank" = "Oyun kısmı boş kalamaz";
+"Note cannot be left blank" = "Not kısmı boş kalamaz";

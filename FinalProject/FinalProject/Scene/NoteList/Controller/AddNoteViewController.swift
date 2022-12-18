@@ -7,58 +7,38 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController {
+final class AddNoteViewController: BaseViewController {
     
     //MARK: - IBOutlets
-    @IBOutlet weak var gamePickerView: UIPickerView!
-    @IBOutlet weak var gameTextField: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private weak var gameTextField: UITextField!
+    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var gameLabel: UITextField!
     
     //MARK: - Variables
-    private var game: [GameDetailModel]? {
-        didSet {
-            gamePickerView.delegate = self
-            gamePickerView.dataSource = self
-        }
-    }
-    private var selectedGamePickerView: Int = 0
-    var editNote : (Bool, Note?) = (false, nil)
+    private var game: [GameDetailModel]?
     private var viewModel: AddNoteViewModelProtocol = AddNoteViewModel()
-
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.fetchAllGames()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-       /* if selectedGamePickerView > 0, let note = gameTextField.text  {
-            let gameId = 
-            if editNote.0 == false {
-                viewModel.saveNote(note: note, id: <#T##Int#>)
-            }*/
+        if let gameText = gameLabel.text, gameText.isEmpty {
+            showErrorAlert(message: "Game cannot be left blank".localized()) {
+            }
+        } else if let note = gameTextField.text, note.isEmpty {
+            showErrorAlert(message: "Note cannot be left blank".localized()) {
+            }
         }
-    }
-    
-//}
-
-extension AddNoteViewController: AddNoteViewModelDelegate {
-    func gameLoaded() {
-        
+        viewModel.saveNote(note: gameTextField.text ?? "", id: gameLabel.text ?? "")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadNoteList"), object: nil)
+        self.dismiss(animated: true)
     }
 }
 
-extension AddNoteViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+extension AddNoteViewController: AddNoteViewModelDelegate {
+    func gameLoaded() {
     }
 }
