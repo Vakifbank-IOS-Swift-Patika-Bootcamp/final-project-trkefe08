@@ -302,7 +302,6 @@
 		9AACCA45294865BA0010A7E3 /* FavoriteList */ = {
 			isa = PBXGroup;
 			children = (
-				9AACCA482948661D0010A7E3 /* View */,
 				9AACCA47294866110010A7E3 /* Controller */,
 				9AACCA46294866040010A7E3 /* ViewModel */,
 			);
@@ -323,13 +322,6 @@
 				9AACCA492948665C0010A7E3 /* FavoriteListViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		9AACCA482948661D0010A7E3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9AACCA4E29486FCE0010A7E3 /* CoreData */ = {

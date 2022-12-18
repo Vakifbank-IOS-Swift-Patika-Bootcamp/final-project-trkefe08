@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 final class CoreDataManager {
+    //MARK: - Variables
     static let shared = CoreDataManager()
     private var coreDataStack: CoreDataStack
     private var nsCore: NSManagedObjectContext {
@@ -23,7 +24,7 @@ final class CoreDataManager {
         request.predicate = NSPredicate(format: "id == %d", id)
         return request.predicate!
     }
-    
+    //MARK: - Methods
     func checkIsFavorite(with gameId: Int, completion: @escaping (Result<Bool, Error>) -> Void) {
         do {
             let request: NSFetchRequest<FinalProject> = FinalProject.fetchRequest()

@@ -23,7 +23,7 @@ final class AddNoteViewController: BaseViewController {
         super.viewDidLoad()
         viewModel.delegate = self
     }
-    
+    //MARK: - IBAction
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let gameText = gameLabel.text, gameText.isEmpty {
             showErrorAlert(message: "Game cannot be left blank".localized()) {
@@ -37,7 +37,7 @@ final class AddNoteViewController: BaseViewController {
         self.dismiss(animated: true)
     }
 }
-
+//MARK: - Extension
 extension AddNoteViewController: AddNoteViewModelDelegate {
     func gameLoaded() {
     }

@@ -8,10 +8,10 @@
 import UIKit
 
 final class NoteTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var noteLabel: UILabel!
-    
+    //MARK: - IBOutlets
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var noteLabel: UILabel!
+    //MARK: - Methods
     func configureCell(model: Note) {
         nameLabel.text = model.game
         noteLabel.text = model.note

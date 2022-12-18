@@ -17,7 +17,7 @@ final class GameListViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var gamePopUpButton: UIButton!
+    @IBOutlet private weak var gamePopUpButton: UIButton!
     
     //MARK: - Variables
     private var viewModel: GameListViewModelProtocol = GameListViewModel()
@@ -26,7 +26,7 @@ final class GameListViewController: BaseViewController {
     private var cellSpacingHeight: CGFloat = 1
     private var one: Int = 1
     private var indexPath: IndexPath = IndexPath(row:0, section:0)
-    var viewNotification: LocalNotificationProtocol = LocalNotificationManager()
+    private var viewNotification: LocalNotificationProtocol = LocalNotificationManager()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {

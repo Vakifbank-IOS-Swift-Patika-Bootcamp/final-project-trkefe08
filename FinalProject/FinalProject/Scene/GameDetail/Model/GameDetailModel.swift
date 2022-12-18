@@ -42,7 +42,6 @@ struct GameDetailModel: Codable {
         case moviesCount = "movies_count"
         case creatorsCount = "creators_count"
         case ratingsCount = "ratings_count"
-       
         case reviewsCount = "reviews_count"
         case developers, genres, tags, publishers
         case descriptionRaw = "description_raw"

@@ -9,17 +9,18 @@ import UIKit
 import Kingfisher
 
 final class GameListTableViewCell: UITableViewCell {
-//MARK: Outlets
+//MARK: IBOutlets
     @IBOutlet private weak var gameImageView: UIImageView! {
         didSet {
             gameImageView.layer.cornerRadius = 10.0
-            
         }
     }
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var topRatingLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var releaseLocalize: UILabel!
+    @IBOutlet  private weak var ratingTopRatingLabel: UILabel!
     
     // MARK: Lifecycle
     override func awakeFromNib() {
@@ -31,13 +32,7 @@ final class GameListTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         gameImageView.image = nil
     }
-    
-   /* override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
-    }*/
-    
-    //MARK: Methods
+    //MARK: - Methods
     func configureCell(game: GameListResultModel) {
         nameLabel.text = game.name
         topRatingLabel.text = "\(game.ratingTop ?? 0)"
@@ -45,6 +40,8 @@ final class GameListTableViewCell: UITableViewCell {
         releaseDateLabel.text = game.released
         guard let url = URL(string: game.backgroundImage ?? "not found") else { return }
         gameImageView.kf.setImage(with: url)
+        releaseLocalize.text = "Release Date".localized()
+        ratingTopRatingLabel.text = "Rating/Top Rating".localized()
     }
     
     func configureFavoriteGameCell(favorites: FinalProject) {

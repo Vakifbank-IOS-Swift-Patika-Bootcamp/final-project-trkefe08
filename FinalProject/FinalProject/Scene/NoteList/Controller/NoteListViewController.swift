@@ -8,7 +8,7 @@
 import UIKit
 
 final class NoteListViewController: UIViewController {
-    
+    //MARK: - IBOutlets
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -16,6 +16,7 @@ final class NoteListViewController: UIViewController {
             tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "NoteCell")
         }
     }
+    //MARK: - Variables
     private var noteList: [Note]?
     private var viewModel: AddNoteViewModelProtocol = AddNoteViewModel()
     //MARK: - Floating Button
@@ -75,7 +76,7 @@ final class NoteListViewController: UIViewController {
     }
 
 }
-
+//MARK: - Extensions
 extension NoteListViewController: AddNoteViewModelDelegate {
     func gameLoaded() {
         tableView.reloadData()

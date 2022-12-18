@@ -10,12 +10,10 @@ import Foundation
 struct GameListModel: Codable {
     let count: Int?
     let next: String?
-    //let previous: JSONNull?
     let results: [GameListResultModel]?
     let seoTitle, seoDescription, seoKeywords, seoH1: String?
     let noindex, nofollow: Bool?
     let gameListModelDescription: String?
-    //let filters: Filters?
     let nofollowCollections: [String]?
 
     enum CodingKeys: String, CodingKey {
