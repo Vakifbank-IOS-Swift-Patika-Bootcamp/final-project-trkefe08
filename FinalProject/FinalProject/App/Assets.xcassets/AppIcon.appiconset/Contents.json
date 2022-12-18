@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "976605_appliances_console_controller_dualshock_gamepad_icon.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
