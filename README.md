@@ -12,6 +12,10 @@ The second page contains the favorites list. It is available in our removal from
 - MaterialActivityIndicator
 - SwiftAlertView
 
+## System Requirements
+- Xcode 14.0.1
+- iOS Deployment Target 16.0
+
 ## Screenshots
 
 <img width="351" alt="Ekran Resmi 2022-12-18 12 31 32" src="https://user-images.githubusercontent.com/111053405/208291941-03553e2a-feb4-4fd8-af57-4ed0d856c75f.png">
